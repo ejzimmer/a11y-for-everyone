@@ -22,105 +22,220 @@
       <div class="slides">
         <section data-markdown>
           <textarea data-template>
+					<!-- .element: data-background-image="dist/enterprise.jpg" -->
 					# Enterprise Grade Accessibility for Everybody
-					picture of the enterprise
 					---
+					<!-- .element: data-transition="fade-out" -->
 					<img height="400px" src="dist/illustrations-spot-DFTC.svg">
 					<div style="font-family: 'Charlie'">Don’t #@!%<br> the customer</div>
 					---
+					<!-- .element: data-transition="fade-in" -->
 					<ul>
 						<li class="fragment">The European Accessibility Act (28 June)</li>
 						<li class="fragment">Section 508</li>
 						<li class="fragment">Disability Discrimination Act 1992</li>
 					</ul>
 					---
+					Accessibility is hard
+					---
+					<div>
+						<blockquote cite="https://www.accessibility.uxdesign.cc/">
+							<p>
+								Your first attempt at making anything accessible will be awful.</p>
+						</blockquote>
+						<p>—Sheri Byrne-Haber, <cite>Giving a damn about accessibility</cite></p>
+					</div>
+					---
 					- Automated tooling
 					- Knowledge sharing
-					- Bringing in the experts
+					- Asking the experts
 					---
-					Automated tooling
-					- low barrier to entry
-					- cheap to setup & run
-					- don't require expert knowledge 
-					- raise awareness of a11y issues - get people asking questions
+					<!-- .element: data-background-image="dist/Data.png" -->
+					## Automated tooling					
 					---
 					<div style="display: flex; align-items: center; justify-content: center; gap: 2 	em">
 						<a href="https://testing-library.com/">testing-library.com</a> <img src="dist/rtl-logo.png">						
 					</div>
-					---
+
 					`getByRole()`
+
 					`queryByRole()`
+					
 					`findByRole()`
 					---
-					`screen.getByRole('button')` <button>Click me</button>
-					`screen.getByRole('combobox')` <input type="number">
+					example of list with repeated elements and trying to select with getByRole
 					---
-					example of some kind of element with no role that can't be queried by getByRole because the role is missing and
-					then also the example of how to fix it. Maybe tabs or something 
+					### Linting
+					<ul>
+						<li class="fragment">Deque's <a href="https://www.deque.com/axe/devtools/linter/">axe Accessibility Linter</a></li>
+					</ul>
 					---
-					examples of getByRole('input', { name: 'something' }) using text/aria-label/label
-					--- 
-					examples of bad accessible names - no labels, button with no text, link with "Click here" text
+					example of a11y linter at work
 					---
-					demo of checking accessible name in dev tools. a button with text + label + aria-label + aria-labelledby or something
+					### Linting
+					<ul>
+						<li>Deque's <a href="https://www.deque.com/axe/devtools/linter/">axe Accessibility Linter</a></li>
+						<li class="fragment">@atlassian/eslint-plugin-a11y</li>
+					</ul>
 					---
-					```
-					const { container } = render(<MyComponent />)
-					await expect(container).toBeAccessible({ violationCount: 2 })
-					```
-					---
-					https://www.npmjs.com/package/jest-axe
-					```
-					import { axe, toHaveNoViolations } from 'jest-axe'
+					<a href="https://www.npmjs.com/package/eslint-plugin-jsx-a11y">eslint-plugin-jsx-a11y</a>
 
-					expect.extend(toHaveNoViolations)
+					<a href="https://www.npmjs.com/package/eslint-plugin-styled-components-a11y">eslint-plugin-styled-components-a11y</a>
+					---
+					### Automated checks in unit tests
 
-					it('should demonstrate this matcher`s usage', async () => {
+					<a href="https://www.npmjs.com/package/jest-axe">jest-axe</a>
+
+					<img width="25%" src="dist/deque-logo.png" alt="Deque company logo">
+					axe-core
+					---
+					### Automated checks<br> in unit tests
+
+					```js
+import { axe, toHaveNoViolations } from 'jest-axe';
+
+expect.extend(toHaveNoViolations);
+
+it('should demonstrate this matcher`s usage', async () => {
+	const { container } = render(&lt;MyComponent /&gt;);
+
+	expect(await axe(container)).toHaveNoViolations();
+})		
+					```
+					---
+					change this to an example of something the unit tests would catch that the linter wouldn't
+					<div style="font-family:'Courier New', Courier, monospace; font-size: .6em; text-align: start;">
+					expect(<span style="color: red">received</span>).toHaveNoViolations(<span style="color: green">expected</span>)
+
+					Expected the HTML found at $('body > img') to have no violations:
+
+					`&lt;img src="#"&gt;`
+
+					Received:
+
+					<span style="color: red">"Images must have alternate text"</span>
+
+					Try fixing it with this help: https://dequeuniversity.com/rules/axe/2.6/image-alt?application=axeAPI
+
+					</div>
+					---
+					### Automated checks<br> in unit tests
+
+					```jsx
+					it('should pass with violations', () => {
 						const { container } = render(<MyComponent />)
-
-						expect(await axe(container)).toHaveNoViolations()
+						await expect(container)
+							.toBeAccessible({ violationCount: 2 })	
 					})
 					```
 					---
-					<img src="dist/jest-axe-output.png">
-					---
-					Linting tools
-					---
-					eslint-plugin-jsx-a11y
-					https://www.npmjs.com/package/eslint-plugin-jsx-a11y
+					### Automated checks in<br> end-to-end tests
 
-					axe DevTools linter
-					https://www.deque.com/axe/devtools/linter/
+					- Cypress & Playwright end-to-end tests
+					- Storybook stories
+					- Visual regression tests 
 					---
-					Tools that run in the browser 
-					- lighthouse
-					- accesibility insights
-					--- 
-					Design Systems
+					### Automated checks in<br> end-to-end tests
+					https://www.npmjs.com/package/@axe-core/playwright
+
+					<pre class="fragment"><code class="js">const results = await new AxeBuilder({ page }).analyze();</code></pre>
+					<pre class="fragment"><code class="js">await expect(page).toBeAccessible({ violationCount: 1 });</code></pre>
+
 					---
-					Automated tooling can only tell us if something is NOT accessible
-					--- 
-					Accessibility depends on context
+					example of failed playwright test that wouldn't be picked up by unit test
+					---
+					### Other automated checks
+
+					<ul>
+						<li class="fragment">Atlassian Accessibility Evaluator</li>
+					</ul>
+					---
+					demo of atlassian a11y evaluator
+					---
+					### Other automated checks
+
+					<ul>
+						<li>Atlassian Accessibility Evaluator</li>
+						<li class="fragment"><a href="https://accessibilityinsights.io/">Accessibility Insights</a></li>
+					</ul>
+					---
+					demo of accessibility Insights
+					---
+					### Other automated checks
+
+					<ul>
+						<li>Atlassian Accessibility Evaluator</li>
+						<li><a href="https://accessibilityinsights.io/">Accessibility Insights</a></li>
+						<li class="fragment"><a href="https://atlassian.design">atlassian.design</a></li>
+					</ul>
+					
+					---
+					<!-- .element: data-background-image="dist/troi.jpeg" -->
+					## Knowledge sharing					
+					---
+					<div>
+						<blockquote cite="https://www.deque.com/blog/automated-testing-study-identifies-57-percent-of-digital-accessibility-issues/">
+							<p>
+								Deque Study Shows Its Automated Testing Identifies 57 Percent of Digital Accessibility Issues, Surpassing Accepted Industry Benchmarks
+							</p>
+						</blockquote>
+						<p><cite><a href="https://www.deque.com/blog/automated-testing-study-identifies-57-percent-of-digital-accessibility-issues/">www.deque.com/blog</a></cite></p>
+					</div>
 					---
 					<img src="dist/DS9-skants-combined.jpg">
 					alt: three star fleet officers in uniform. the captain's uniform is red, the medical officer's is blue, and the engineer's is gold.
 					---
 					<img src="dist/DS9-skants-combined.jpg">
-					alt: Captain Sisko, Doctor Bashir and Chief O'Brien's faces pasted onto an officer wearing the skant uniform, in the appropriate colour. All 3 have uncomfortable facial expressions
+					alt: Captain Sisko, Doctor Bashir and Chief O'Brien's faces photoshopped onto an officer wearing the skant uniform, in the appropriate colour. All 3 have uncomfortable facial expressions
 					https://startrekcostumeguide.com/2022/02/tng-skant-crew-gallery/
 					---
 					A11y begins with design
 					---
-					Knowledge sharing
+					## Knowledge sharing
+					<ul>
+						<li class="fragment">Training</li>
+						<li class="fragment">Accessibility Champions Program</li>
+					</ul>
 					---
-					how to upskill yourself (and other interested people)
-					certifications
-					--- 
-					PR comments & design annotations
+					ally champs badge
 					---
-					Slack channel where people can ask questions and more knowledgable people can answer them
-					We've got an AI agent to help with this. Speeds up writing answers, but definitely requires monitoring & checking by experts 
+					<ul>
+						<li class="fragment">Start with small wins</li>
+						<li class="fragment">Make it easy for people</li>
+					</ul>
+					---
+					example of getting accessible name from dev tools rather than using a screen reader 
+					---
+					<ul>
+						<li>Start with small wins</li>
+						<li>Make it easy for people</li>
+						<li class="fragment">Designers >> Developers</li>
+					</ul>
 
+					---
+					figma annotations
+					---
+					## Knowledge sharing
+					<ul>
+						<li>Training</li>
+						<li>Accessibility Champions Program</li>
+						<li class="fragment">#a11y-help</li>
+						<li class="fragment">Knowledge Base</li>
+						<li class="fragment">Office hours</li>
+						<li class="fragment">Mentoring program</li>
+					</ul>
+					---
+					The AI Question <img src="dist/rovo.png">
+					---
+					<!-- .element: data-background-image="dist/Laforge.jpg" -->
+					## Asking the experts	
+					---
+					## Asking the experts
+					<ul>
+						<li class="fragment">Accessibility consultants</li>
+						<li class="fragment">Staff</li>
+						<li class="fragment">Users</li>
+					</ul>
 				</textarea
           >
         </section>
