@@ -3,3 +3,33 @@
   src: url("Charlie_Text-Semibold.woff2");
   font-weight: 400;
 }
+
+@font-face {
+  font-family: "Strange New Worlds";
+  src: url("edgeofthegalaxy-regular.otf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Strange New Worlds";
+  src: url("edgeofthegalaxy-italic.otf");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Strange New Worlds - Poster";
+  src: url("edgeofthegalaxy-poster.otf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Strange New Worlds - Poster";
+  src: url("edgeofthegalaxy-poster-italic.otf");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Antonio";
+  src: url("Antonio-Regular.woff2");
+  font-weight: 400;
+}
