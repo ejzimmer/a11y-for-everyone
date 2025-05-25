@@ -21,6 +21,8 @@
       body {
         --gold: #f99217;
         --light-gold: #fbb356;
+        --red: #cc4444;
+        --blue: #8899ff;
       }
       .reveal h1 {
         font-family: "Strange New Worlds - Poster";
@@ -32,35 +34,62 @@
         -webkit-text-fill-color: transparent;
       }
 
-      .inverse {
+      .reveal h2,
+      .reveal h3 {
+        font-family: "Strange New Worlds";
+        letter-spacing: 2px;
+      }
+
+      .reveal h2 {
+        font-size: 3em;
+        color: var(--blue);
+        background: hsl(0 0% 0% / 0.4);
+        padding: 0.5em;
+        padding-block-end: 0.2em;
+        border-radius: 80px;
+      }
+
+      .reveal h3 {
+        color: var(--red);
+        font-size: 2em;
+      }
+
+      .reveal-viewport.inverse {
         background-color: var(--r-main-color);
         background: linear-gradient(var(--gold), var(--light-gold));
 
         .reveal {
           color: var(--r-background-color);
-          font-family: "Strange New Worlds";
         }
 
         .reveal em {
           font-style: normal;
         }
       }
+      .reveal [data-state="inverse"] {
+        font-family: "Strange New Worlds";
+      }
+      .reveal-viewport:not(.inverse) .reveal [data-state="inverse"] {
+        color: transparent;
+      }
 
-      .reveal blockquote {
+      .reveal blockquote,
+      .reveal pre {
         --block-edge-width: 60px;
         --inline-start-edge-width: 150px;
         --border-radius: 80px;
         --inner-border-radius: calc(var(--border-radius) / 2);
+        --interface-colour: var(--gold);
         background: linear-gradient(
-          var(--gold),
-          var(--gold) calc(var(--block-edge-width) * 1.5),
+          var(--interface-colour),
+          var(--interface-colour) calc(var(--block-edge-width) * 1.5),
           black calc(var(--block-edge-width) * 1.5),
           black calc(var(--block-edge-width) * 1.5 + 10px),
-          var(--gold) calc(var(--block-edge-width) * 1.5 + 10px),
-          var(--gold) 50%,
+          var(--interface-colour) calc(var(--block-edge-width) * 1.5 + 10px),
+          var(--interface-colour) 50%,
           black 50%,
           black calc(50% + 10px),
-          var(--gold) calc(50% + 10px)
+          var(--interface-colour) calc(50% + 10px)
         );
         border-radius: var(--border-radius);
         border-top-right-radius: 0;
@@ -80,7 +109,7 @@
           content: "";
           width: var(--block-edge-width);
           height: var(--block-edge-width);
-          background-color: var(--gold);
+          background-color: var(--interface-colour);
           position: absolute;
           right: calc(var(--block-edge-width) / 2 * -1);
           border-radius: 100%;
@@ -121,6 +150,74 @@
             align-self: end;
           }
         }
+      }
+
+      .reveal pre {
+        --inline-start-edge-width: 80px;
+        --interface-colour: var(--blue);
+        background: var(--interface-colour);
+        background: linear-gradient(
+          var(--interface-colour),
+          var(--interface-colour) calc(var(--block-edge-width) - 1px),
+          black calc(var(--block-edge-width) - 1px),
+          black calc(var(--block-edge-width) + 10px),
+          var(--interface-colour) calc(var(--block-edge-width) + 10px),
+          var(--interface-colour) calc(100% - var(--block-edge-width) - 11px),
+          black calc(100% - var(--block-edge-width) - 11px),
+          black calc(100% - var(--block-edge-width)),
+          var(--interface-colour) calc(100% - var(--block-edge-width))
+        );
+
+        font-size: 0.55em;
+
+        code {
+          padding: 0;
+
+          td {
+            padding-block-start: 1em;
+          }
+        }
+      }
+
+      .reveal .hljs {
+        min-height: calc(100% - var(--block-edge-width) * 2);
+      }
+      .reveal .hljs-ln-numbers {
+        background: var(--blue);
+        color: black;
+        opacity: 1;
+      }
+      .reveal .hljs-ln-code {
+        padding-inline-start: 0.75em;
+      }
+      .reveal tr:first-child {
+        .hljs-ln-numbers,
+        .hljs-ln-code {
+          padding-block-start: 1em;
+        }
+
+        .hljs-ln-numbers {
+          background: linear-gradient(black, black 10px, var(--blue) 10px);
+        }
+      }
+      .reveal tr:last-child {
+        .hljs-ln-numbers,
+        .hljs-ln-code {
+          padding-block-end: 1em;
+        }
+
+        .hljs-ln-numbers {
+          background: linear-gradient(
+            var(--blue),
+            var(--blue) calc(100% - 11px),
+            black calc(100% - 11px)
+          );
+        }
+      }
+      .reveal .hljs:not(:first-child).fragment {
+        top: var(--block-edge-width);
+        left: var(--inline-start-edge-width);
+        width: calc(100% - var(--inline-start-edge-width));
       }
 
       .reveal ul {
@@ -214,8 +311,14 @@
           </ul>
         </section>
 
-        <section data-background-image="dist/Data.png">
-          <h2>Automated tooling</h2>
+        <section
+          data-background-image="dist/Data.png"
+          data-background-position="-100px -60px"
+          data-background-size="calc(100% + 100px)"
+        >
+          <h2 style="width: min-content; position: fixed; right: -100px">
+            Automated tooling
+          </h2>
         </section>
 
         <section>
@@ -224,37 +327,28 @@
               display: flex;
               align-items: center;
               justify-content: center;
-              gap: 2 em;
+              gap: 0.25em;
+              font-size: 2em;
             "
           >
             <a href="https://testing-library.com/">testing-library.com</a>
             <img src="dist/rtl-logo.png" />
           </div>
 
-          <div>getByRole()</div>
-          <div>queryByRole()</div>
-          <div>findByRole()</div>
-        </section>
-
-        <section>
-          <ul>
-            <li>Lost in Translation <a href="./s2e6.html">▶️</a></li>
-            <li>Those Old Scientists <a href="./s2e7.html">▶️</a></li>
-            <li>Under the Cloak of War <a href="./s2e8.html">▶️</a></li>
-            <li>Subspace Rhapsody <a href="./s2e9.html">▶️</a></li>
-          </ul>
-        </section>
-
-        <section>
-          <pre><code class="html" data-noescape data-line-numbers="|4">&lt;a href="./s2e7.html">
-	&lt;img 
-		src="./play-button.svg" 
-		alt="Play episode">
-&lt;/a></code></pre>
-
-          <pre
+          <code
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: start;
+              width: fit-content;
+              margin: auto;
+            "
             class="fragment"
-          ><code>screen.getByRole('link', { name: 'Play episode'})</code></pre>
+          >
+            <div>getByRole()</div>
+            <div>queryByRole()</div>
+            <div>findByRole()</div>
+          </code>
         </section>
 
         <section>
@@ -262,33 +356,6 @@
             TestingLibraryElementError: Found multiple elements with the role
             "link" and name "Play episode"
           </code>
-        </section>
-
-        <section>
-          <ul>
-            <li>Lost in Translation <a href="./s2e6.html">▶️</a></li>
-            <li>Those Old Scientists <a href="./s2e7.html">▶️</a></li>
-            <li>Under the Cloak of War <a href="./s2e8.html">▶️</a></li>
-            <li>Subspace Rhapsody <a href="./s2e9.html">▶️</a></li>
-          </ul>
-        </section>
-
-        <section>
-          <pre><code class="js">screen.getAllByRole('link', { name: 'Play episode'})[0]</code></pre>
-          <div class="fragment">❌</div>
-        </section>
-
-        <section>
-          <pre><code class="html" data-noescape data-line-numbers="|4">&lt;a href="./s2e7.html">
-	&lt;img
-		src="./play-button.svg"
-		alt="Play episode: Those Old Scientists"
-	/>
-&lt;/a></code></pre>
-          <pre class="fragment"><code>screen.getByRole(
-	'link', 
-	{ name: 'Play episode: Those Old Scientists'}
-)</code></pre>
         </section>
 
         <section>
@@ -313,7 +380,7 @@
         </section>
 
         <section>
-          <pre><code class="html"><a href="./s2e6.html">
+          <pre><code class="html" data-line-numbers=""><a href="./s2e6.html">
 	<img src="./play-button.svg" />
 </a></code></pre>
         </section>
@@ -334,35 +401,58 @@
                 >axe Accessibility Linter</a
               >
             </li>
-            <li class="fragment">@atlassian/eslint-plugin-a11y</li>
+            <li class="fragment">
+              <div class="fragment strike">@atlassian/eslint-plugin-a11y</div>
+            </li>
+            <li class="fragment">
+              <a href="https://www.npmjs.com/package/eslint-plugin-jsx-a11y"
+                >eslint-plugin-jsx-a11y</a
+              >
+            </li>
+            <li class="fragment">
+              <a
+                href="https://www.npmjs.com/package/eslint-plugin-styled-components-a11y"
+                >eslint-plugin-styled-components-a11y</a
+              >
+            </li>
           </ul>
         </section>
 
         <section>
+          <h3>
+            Automated checks <br />
+            in unit tests
+          </h3>
+        </section>
+
+        <section>
           <div
-            style="display: flex; flex-direction: column; align-items: start"
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              font-size: 1.8em;
+            "
           >
-            <a href="https://www.npmjs.com/package/eslint-plugin-jsx-a11y"
-              >eslint-plugin-jsx-a11y</a
+            <a href="https://www.npmjs.com/package/jest-axe">jest-axe</a>
+
+            <div
+              class="fragment"
+              style="
+                display: flex;
+                gap: 0.25em;
+                align-items: center;
+                width: max-content;
+              "
             >
-            <a
-              href="https://www.npmjs.com/package/eslint-plugin-styled-components-a11y"
-              >eslint-plugin-styled-components-a11y</a
-            >
+              <img
+                width="300px"
+                src="dist/deque-logo.png"
+                alt="Deque company logo"
+              />
+              <a href="https://github.com/dequelabs/axe-core">axe-core</a>
+            </div>
           </div>
-        </section>
-
-        <section>
-          <h3>Automated checks in unit tests</h3>
-
-          <a class="fragment" href="https://www.npmjs.com/package/jest-axe"
-            >jest-axe</a
-          >
-        </section>
-
-        <section>
-          <img width="25%" src="dist/deque-logo.png" alt="Deque company logo" />
-          axe-core
         </section>
 
         <section>
@@ -386,7 +476,7 @@ function Episode({ title, url }) {
         </section>
 
         <section>
-          <pre><code class="javascript" data-noescape data-line-numbers="|1|3|15-10|6-8|10">import { axe, toHaveNoViolations } from "jest-axe"
+          <pre><code class="javascript" data-noescape data-line-numbers="|1|3|5-11|6-8|10">import { axe, toHaveNoViolations } from "jest-axe"
 
 expect.extend(toHaveNoViolations)
 
@@ -400,9 +490,20 @@ it("is accessible", async () => {
         </section>
 
         <section>
-          <div style="font-size: 0.8em">
+          <style>
+            .reveal pre.non-lcars {
+              padding: 0;
+              background: unset;
+
+              &::before,
+              &::after {
+                display: none;
+              }
+            }
+          </style>
+          <div>
             Expected the HTML found at $('ul') to have no violations: <br />
-            <pre><code>&lt;ul>
+            <pre class="non-lcars"><code>&lt;ul>
 	&lt;div>
 	Those old scientists 
 		&lt;a href="./s2e7.html">
@@ -424,19 +525,6 @@ it("is accessible", async () => {
         </section>
 
         <section>
-          <h3>Automated checks in unit tests</h3>
-
-          <pre><code class="js" data-line-numbers="|6-7">it('should pass with violations', () => { 
-	const { container } = render(
-		&lt;EpisodeList episodes="{[mockEpisodes]}" />
-	) 
-	
-	await expect(container)
-		.toBeAccessible({ violationCount: 2 }) 
-})</code></pre>
-        </section>
-
-        <section>
           <h3>
             Automated checks in<br />
             end-to-end tests
@@ -450,40 +538,39 @@ it("is accessible", async () => {
         </section>
 
         <section>
-          <h3>Automated checks in end-to-end tests</h3>
+          <h3>Automated checks in <br />end-to-end tests</h3>
 
           <a href="https://www.npmjs.com/package/@axe-core/playwright"
-            >https://www.npmjs.com/package/@axe-core/playwright</a
+            >@axe-core/playwright</a
           >
-
-          <pre
-            class="fragment"
-          ><code class="js">const results = await new AxeBuilder({ page }).analyze();</code></pre>
-          <pre
-            class="fragment"
-          ><code class="js">await expect(page).toBeAccessible({ violationCount: 1 });</code></pre>
         </section>
 
         <section>
-          example of failed playwright test that wouldn't be picked up by unit
-          test
+          <pre><code class="js" data-line-numbers="|6|8,9|11">import { test, expect } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+
+test.describe('homepage', () => {
+	test('should not have any automatically detectable accessibility issues', async ({ page }) => {
+		await page.goto('https://your-site.com/');
+
+		const results = 
+			await new AxeBuilder({ page }).analyze();
+
+		expect(results.violations).toEqual([]);
+	});
+});
+					</code></pre>
+          <div style="position: fixed; bottom: -20; right: 0">
+            <a href="https://playwright.dev/docs/accessibility-testing"
+              >[Source]</a
+            >
+          </div>
         </section>
 
         <section>
           <h3>Other automated checks</h3>
 
           <ul>
-            <li class="fragment">Atlassian Accessibility Evaluator</li>
-          </ul>
-        </section>
-
-        <section>demo of atlassian a11y evaluator</section>
-
-        <section>
-          <h3>Other automated checks</h3>
-
-          <ul>
-            <li>Atlassian Accessibility Evaluator</li>
             <li class="fragment">
               <a href="https://accessibilityinsights.io/"
                 >Accessibility Insights</a
@@ -492,13 +579,19 @@ it("is accessible", async () => {
           </ul>
         </section>
 
-        <section>demo of accessibility Insights</section>
+        <section>
+          <img
+            src="dist/tab-order.png"
+            alt="a screenshot of the checkbox select
+          component on atlassian.design, with the page's tab order annotated on
+          it"
+          />
+        </section>
 
         <section>
           <h3>Other automated checks</h3>
 
           <ul>
-            <li>Atlassian Accessibility Evaluator</li>
             <li>
               <a href="https://accessibilityinsights.io/"
                 >Accessibility Insights</a
@@ -510,71 +603,50 @@ it("is accessible", async () => {
           </ul>
         </section>
 
-        <section data-background-image="dist/troi.jpeg">
-          <h2>Knowledge sharing</h2>
-        </section>
-
         <section>
           <blockquote
             cite="https://www.deque.com/blog/automated-testing-study-identifies-57-percent-of-digital-accessibility-issues/"
           >
+            <cite>www.deque.com/blog</cite>
             <p>
               Deque Study Shows Its Automated Testing Identifies 57 Percent of
               Digital Accessibility Issues, Surpassing Accepted Industry
               Benchmarks
             </p>
           </blockquote>
-          <p>
-            <cite
-              ><a
-                href="https://www.deque.com/blog/automated-testing-study-identifies-57-percent-of-digital-accessibility-issues/"
-                >www.deque.com/blog</a
-              ></cite
-            >
-          </p>
         </section>
 
-        <section>
-          <img src="dist/DS9-skants-combined.jpg" />
-          alt: three star fleet officers in uniform. the captain's uniform is
-          red, the medical officer's is blue, and the engineer's is gold.
-        </section>
-
-        <section>
-          <img src="dist/DS9-skants-combined.jpg" />
-          alt: Captain Sisko, Doctor Bashir and Chief O'Brien's faces
-          photoshopped onto an officer wearing the skant uniform, in the
-          appropriate colour. All 3 have uncomfortable facial expressions
-          https://startrekcostumeguide.com/2022/02/tng-skant-crew-gallery/
-        </section>
-
-        <section>A11y begins with design</section>
-
-        <section>
-          <h2>Knowledge sharing</h2>
-          <ul>
-            <li class="fragment">Training</li>
-          </ul>
-        </section>
-
-        <section>
-          <a
-            href="https://www.smashingmagazine.com/2019/02/accessibility-webinar/"
+        <section data-state="inverse" data-transition="fade-out">
+          <em class="r-fit-text"
+            >Accessibility<br />
+            depends on context</em
           >
-            How A Screen Reader User Accesses The Web: A Smashing Video
-          </a>
-          <cite>Smashing Magazine</cite>
+        </section>
+        <section data-state="inverse" data-transition="fade-out">
+          <em class="r-fit-text"
+            >Accessibility<br />
+            begins with design</em
+          >
+        </section>
+
+        <section
+          data-background-image="dist/troi.jpeg"
+          data-background-position="-100px"
+        >
+          <h2 style="position: fixed; right: -200px; width: min-content">
+            Knowledge sharing
+          </h2>
         </section>
 
         <section>
-          <h2>Knowledge sharing</h2>
+          <h3>Knowledge sharing</h3>
           <ul>
             <li class="fragment">Training</li>
             <li class="fragment">Accessibility Champions Program</li>
           </ul>
         </section>
 
-        <section>ally champs badge</section>
+        <section>a11y champs badge</section>
         <section>
           <ul>
             <li class="fragment">Pick low-hanging fruit</li>
@@ -583,14 +655,16 @@ it("is accessible", async () => {
         </section>
 
         <section>
-          <div style="display: flex">
+          <div style="display: flex; align-items: center">
             <img
               src="dist/a11y-dev-tools-ff.png"
               alt="Accessibility dev tools in Firefox"
+              width="60%"
             />
             <img
               src="dist/a11y-dev-tools-chrome.png"
               alt="Accessibility dev tools in Chrome"
+              width="40%"
             />
           </div>
         </section>
@@ -606,27 +680,41 @@ it("is accessible", async () => {
         <section>figma annotations</section>
 
         <section>
-          <h2>Knowledge sharing</h2>
+          <h3>Knowledge sharing</h3>
           <ul>
             <li>Training</li>
             <li>Accessibility Champions Program</li>
-            <li class="fragment">#a11y-help</li>
+            <li class="fragment">#help-accessibility</li>
             <li class="fragment">Knowledge Base</li>
             <li class="fragment">Office hours</li>
-            <li class="fragment">Mentoring program</li>
           </ul>
         </section>
 
-        <section>The AI Question <img src="dist/rovo.png" /></section>
+        <section>
+          <div
+            style="
+              display: flex;
+              gap: 0.25em;
+              align-items: center;
+              justify-content: center;
+              font-size: 2em;
+            "
+          >
+            AI <img src="dist/rovo.png" />
+          </div>
+        </section>
 
         <section data-background-image="dist/Laforge.jpg">
-          <h2>Expert input</h2>
+          <h2 style="position: fixed; right: 0">
+            Expert<br />
+            input
+          </h2>
         </section>
 
         <section>
-          <h2>Expert input</h2>
+          <h3>Expert input</h3>
           <ul>
-            <li class="fragment">Accessibility consultants</li>
+            <li class="fragment">Accessibility professionals</li>
             <li class="fragment">Staff</li>
             <li class="fragment">Users</li>
           </ul>
@@ -634,17 +722,27 @@ it("is accessible", async () => {
 
         <section>
           <ul>
-            <li>Every little bit helps</li>
-            <li>Shift a11y left</li>
-            <li>Automated tools</li>
-            <li>Knowledge sharing</li>
-            <li>Expert feedback</li>
+            <li class="fragment">Every little bit helps</li>
+            <li class="fragment">Shift a11y left</li>
+            <li class="fragment">Automated tools</li>
+            <li class="fragment">Knowledge sharing</li>
+            <li class="fragment">Expert feedback</li>
           </ul>
         </section>
 
         <section>
-          <a href="https://a11y.ez.codes">a11y.ez.codes</a>
-          <img src="dist/frame.png" alt="https://a11y.ez.codes" />
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 0.25em;
+              align-items: center;
+              font-size: 3em;
+            "
+          >
+            <a href="https://a11y.ez.codes">a11y.ez.codes</a>
+            <img src="dist/frame.png" alt="https://a11y.ez.codes" />
+          </div>
         </section>
       </div>
     </div>
