@@ -647,9 +647,26 @@ test.describe('homepage', () => {
         </section>
 
         <section>
-          <img src="dist/29711295-d503-48b9-a144-cd3538f882e5.png" alt="Atlassian Accessibility Champions Program logo" />
-          <img src="dist/29458ac1-998f-4473-bd8f-8f7ac9104bde.png" alt="Accessibility Champs Level 1 badge"
+          <div
+            style="
+              display: grid;
+              height: 600px;
+              grid-template-rows: 3fr 1fr;
+              justify-items: center;
+            "
+          >
+            <img
+              style="grid-column: 1 / -1"
+              src="dist/29711295-d503-48b9-a144-cd3538f882e5.png"
+              alt="Atlassian Accessibility Champions Program logo"
+            />
+            <img
+              src="dist/29458ac1-998f-4473-bd8f-8f7ac9104bde.png"
+              alt="Accessibility Champs Level 1 badge"
+            />
+          </div>
         </section>
+
         <section>
           <ul>
             <li class="fragment">Pick low-hanging fruit</li>
@@ -688,8 +705,6 @@ test.describe('homepage', () => {
             <li>Training</li>
             <li>Accessibility Champions Program</li>
             <li class="fragment">#help-accessibility</li>
-            <li class="fragment">Knowledge Base</li>
-            <li class="fragment">Office hours</li>
           </ul>
         </section>
 
@@ -705,6 +720,17 @@ test.describe('homepage', () => {
           >
             AI <img src="dist/rovo.png" />
           </div>
+        </section>
+
+        <section>
+          <h3>Knowledge sharing</h3>
+          <ul>
+            <li>Training</li>
+            <li>Accessibility Champions Program</li>
+            <li>#help-accessibility</li>
+            <li class="fragment">Knowledge Base</li>
+            <li class="fragment">Office hours</li>
+          </ul>
         </section>
 
         <section data-background-image="dist/Laforge.jpg">
