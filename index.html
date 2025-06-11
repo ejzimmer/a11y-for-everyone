@@ -401,15 +401,17 @@
                 >axe Accessibility Linter</a
               >
             </li>
-            <li class="fragment">
-              <div class="fragment strike">@atlassian/eslint-plugin-a11y</div>
+            <li class="fragment" data-fragment-index="1">
+              <div class="fragment strike" data-fragment-index="2">
+                @atlassian/eslint-plugin-a11y
+              </div>
             </li>
-            <li class="fragment">
+            <li class="fragment" data-fragment-index="3">
               <a href="https://www.npmjs.com/package/eslint-plugin-jsx-a11y"
                 >eslint-plugin-jsx-a11y</a
               >
             </li>
-            <li class="fragment">
+            <li class="fragment" data-fragment-index="3">
               <a
                 href="https://www.npmjs.com/package/eslint-plugin-styled-components-a11y"
                 >eslint-plugin-styled-components-a11y</a
@@ -581,10 +583,24 @@ test.describe('homepage', () => {
 
         <section>
           <img
+            src="dist/a11y-insights.png"
+            alt="a11y insights automated checks"
+          />
+        </section>
+
+        <section>
+          <img
             src="dist/tab-order.png"
             alt="a screenshot of the checkbox select
           component on atlassian.design, with the page's tab order annotated on
           it"
+          />
+        </section>
+
+        <section>
+          <img
+            src="dist/a11y-insights-images.png"
+            alt="a11y insights images checks"
           />
         </section>
 
@@ -714,6 +730,7 @@ test.describe('homepage', () => {
           <ul>
             <li>Training</li>
             <li>Accessibility Champions Program</li>
+            <li class="fragment">Knowledge Base</li>
             <li class="fragment">#help-accessibility</li>
           </ul>
         </section>
@@ -742,8 +759,8 @@ test.describe('homepage', () => {
           <ul>
             <li>Training</li>
             <li>Accessibility Champions Program</li>
+            <li>Knowledge Base</li>
             <li>#help-accessibility</li>
-            <li class="fragment">Knowledge Base</li>
             <li class="fragment">Office hours</li>
           </ul>
         </section>
@@ -801,7 +818,7 @@ test.describe('homepage', () => {
       // - https://revealjs.com/config/
       Reveal.initialize({
         hash: true,
-        controls: false,
+        controls: true,
         progress: false,
 
         // Learn about plugins: https://revealjs.com/plugins/
