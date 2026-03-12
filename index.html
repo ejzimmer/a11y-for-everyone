@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -266,7 +266,7 @@
 
         <section data-transition="fade-out">
           <img height="400px" src="dist/illustrations-spot-DFTC.svg" alt="" />
-          <div style="font-family: 'Charlie'">
+          <div style="font-family: &quot;Charlie&quot;">
             Don’t #@!%<br />
             the customer
           </div>
@@ -352,10 +352,60 @@
         </section>
 
         <section>
+          <ul>
+            <li>Lost in Translation <a href="./s2e6.html">Play episode</a></li>
+            <li>Those Old Scientists <a href="./s2e7.html">Play episode</a></li>
+            <li>
+              Under the Cloak of War <a href="./s2e8.html">Play episode</a>
+            </li>
+            <li>Subspace Rhapsody <a href="./s2e9.html">Play episode</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <pre>
+            <code class="jsx"> 
+  it('renders a link to play each episode', () => {
+    render(&lt;EpisodeList /&gt;)
+
+    const link = screen.getByRole(
+                    'link', 
+                    { name: 'Play episode' }
+                 ) 
+
+    expect(link).toBeInTheDocument()
+  })
+               </code>
+          </pre>
+        </section>
+
+        <section>
           <code>
             TestingLibraryElementError: Found multiple elements with the role
             "link" and name "Play episode"
           </code>
+        </section>
+
+        <section>
+          <style>
+            i {
+              font-style: italic;
+            }
+          </style>
+          <ul>
+            <li>
+              <a href="./s2e6.html">Play <i>Lost in Translation</i></a>
+            </li>
+            <li>
+              <a href="./s2e7.html">Play <i>Those Old Scientists</i></a>
+            </li>
+            <li>
+              <a href="./s2e8.html">Play <i>Under the Cloak of War</i></a>
+            </li>
+            <li>
+              <a href="./s2e9.html">Play <i>Subspace Rhapsody</i></a>
+            </li>
+          </ul>
         </section>
 
         <section>
@@ -638,6 +688,136 @@ test.describe('homepage', () => {
             depends on context</em
           >
         </section>
+
+        <section>
+          <img
+            src="/dist/star-trek-picard-data-easter-eggs-spot.jpg"
+            alt="Data the android stroking his pet cat Spot"
+          />
+          <cite
+            style="font-size: 0.5em; position: absolute; right: 0; bottom: 0"
+          >
+            Source:
+            <a
+              style="font-style: italic"
+              href="https://screenrant.com/star-trek-tng-data-love-cats-ironic-brent-spiner/"
+              >Data's Love Of Cats In Star Trek Has An Ironic Real-Life Twist</a
+            >
+          </cite>
+        </section>
+
+        <section>
+          <blockquote>
+            <cite>GPT-5 mini</cite>
+            <p
+              style="
+                text-transform: none;
+                line-height: 1.2;
+                font-size: 0.8em;
+                font-family: &quot;Source Sans Pro&quot;, Helvetica, sans-serif;
+              "
+            >
+              Close-up of Star Trek: Picard characters Data (left) and Jean‑Luc
+              Picard (right) seated side-by-side in profile facing right; Data’s
+              pale, synthetic skin and dark hair contrast with Picard’s older,
+              gray beard and thoughtful expression, both wearing dark jackets
+              against a warm, softly lit background.
+            </p>
+          </blockquote>
+        </section>
+
+        <section>
+          <img
+            src="/dist/star-trek-picard-data-easter-eggs-spot.jpg"
+            alt="Data the android stroking his pet cat Spot"
+          />
+          <cite
+            style="font-size: 0.5em; position: absolute; right: 0; bottom: 0"
+          >
+            Source:
+            <a
+              style="font-style: italic"
+              href="https://screenrant.com/star-trek-tng-data-love-cats-ironic-brent-spiner/"
+              >Data's Love Of Cats In Star Trek Has An Ironic Real-Life Twist</a
+            >
+          </cite>
+        </section>
+
+        <section>
+          <blockquote>
+            <cite>GPT-5 mini</cite>
+            <p
+              style="
+                text-transform: none;
+                line-height: 1.2;
+                font-size: 0.8em;
+                font-family: &quot;Source Sans Pro&quot;, Helvetica, sans-serif;
+              "
+            >
+              Close-up of Data (left) and his pet cat Spot (right) seated
+              side-by-side in profile facing right; Data’s pale, synthetic skin
+              and dark hair contrast with Spot’s orange-and-white fur, both lit
+              by warm, soft lighting.
+            </p>
+          </blockquote>
+        </section>
+
+        <section>
+          <h4 style="text-transform: none">
+            How Data Loving Cats Helped Make Him More Human
+          </h4>
+          <img
+            src="/dist/star-trek-picard-data-easter-eggs-spot.jpg"
+            alt="Data the android stroking his pet cat Spot"
+          />
+          <cite
+            style="font-size: 0.5em; position: absolute; right: 0; bottom: 0"
+          >
+            Source:
+            <a
+              style="font-style: italic"
+              href="https://screenrant.com/star-trek-tng-data-love-cats-ironic-brent-spiner/"
+              >Data's Love Of Cats In Star Trek Has An Ironic Real-Life Twist</a
+            >
+          </cite>
+        </section>
+
+        <section>
+          <blockquote>
+            <cite>GPT-5 mini</cite>
+            <p
+              style="
+                text-transform: none;
+                line-height: 1.2;
+                font-size: 0.8em;
+                font-family: &quot;Source Sans Pro&quot;, Helvetica, sans-serif;
+              "
+            >
+              Close-up of Data (Brent Spiner) holding his orange-and-white tabby
+              Spot; Data’s pale, android features and dark hair contrast with
+              Spot’s fur as they sit side-by-side in warm, soft lighting,
+              conveying a tender, nostalgic moment.
+            </p>
+          </blockquote>
+        </section>
+
+        <section>
+          <blockquote>
+            <cite>Me</cite>
+            <p
+              style="
+                text-transform: none;
+                line-height: 1.2;
+                font-size: 0.8em;
+                font-family: &quot;Source Sans Pro&quot;, Helvetica, sans-serif;
+              "
+            >
+              In a scene from Star Trek: Picard, an elderly Data holds his cat,
+              Spot, lovingly stroking Spot's head. The cat appears non-plussed.
+            </p>
+          </blockquote>
+        </section>
+
         <section data-state="inverse" data-transition="fade-out">
           <em class="r-fit-text"
             >Accessibility<br />
@@ -818,7 +998,7 @@ test.describe('homepage', () => {
       // - https://revealjs.com/config/
       Reveal.initialize({
         hash: true,
-        controls: true,
+        controls: false,
         progress: false,
 
         // Learn about plugins: https://revealjs.com/plugins/
