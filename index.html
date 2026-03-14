@@ -274,7 +274,7 @@
 
         <section data-transition="fade-in">
           <ul>
-            <li class="fragment">The European Accessibility Act (28 June)</li>
+            <li class="fragment">The European Accessibility Act 2025</li>
             <li class="fragment">Section 508</li>
             <li class="fragment">Disability Discrimination Act 1992</li>
           </ul>
@@ -352,6 +352,12 @@
         </section>
 
         <section>
+          <code style="margin-inline-start: -4em">getByRole({'textbox',</code
+          ><br />
+          <code>{ name: 'Episode name' })</code>
+        </section>
+
+        <section>
           <ul>
             <li>Lost in Translation <a href="./s2e6.html">Play episode</a></li>
             <li>Those Old Scientists <a href="./s2e7.html">Play episode</a></li>
@@ -364,8 +370,7 @@
 
         <section>
           <pre>
-            <code class="jsx"> 
-  it('renders a link to play each episode', () => {
+            <code class="jsx" data-line-numbers="|4-7">it('renders a link to play each episode', () => {
     render(&lt;EpisodeList /&gt;)
 
     const link = screen.getByRole(
@@ -472,7 +477,7 @@
 
         <section>
           <h3>
-            Automated checks <br />
+            Accessibility checks <br />
             in unit tests
           </h3>
         </section>
@@ -577,9 +582,13 @@ it("is accessible", async () => {
         </section>
 
         <section>
+          <code>setupAutoA11yTests()</code>
+        </section>
+
+        <section>
           <h3>
-            Automated checks in<br />
-            end-to-end tests
+            Accessibility checks <br />
+            in end-to-end tests
           </h3>
 
           <ul>
@@ -590,8 +599,6 @@ it("is accessible", async () => {
         </section>
 
         <section>
-          <h3>Automated checks in <br />end-to-end tests</h3>
-
           <a href="https://www.npmjs.com/package/@axe-core/playwright"
             >@axe-core/playwright</a
           >
@@ -912,6 +919,7 @@ test.describe('homepage', () => {
             <li>Accessibility Champions Program</li>
             <li class="fragment">Knowledge Base</li>
             <li class="fragment">#help-accessibility</li>
+            <li class="fragment">Office hours</li>
           </ul>
         </section>
 
@@ -932,17 +940,6 @@ test.describe('homepage', () => {
               style="max-height: 100%; width: 1em"
             />
           </div>
-        </section>
-
-        <section>
-          <h3>Knowledge sharing</h3>
-          <ul>
-            <li>Training</li>
-            <li>Accessibility Champions Program</li>
-            <li>Knowledge Base</li>
-            <li>#help-accessibility</li>
-            <li class="fragment">Office hours</li>
-          </ul>
         </section>
 
         <section data-background-image="dist/Laforge.jpg">
