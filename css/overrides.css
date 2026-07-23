@@ -33,3 +33,10 @@
   src: url("Antonio-Regular.woff2");
   font-weight: 400;
 }
+
+@font-face {
+  font-family: "Share Tech Mono";
+  src: url("ShareTechMono.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}

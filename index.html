@@ -24,6 +24,23 @@
         --red: #cc4444;
         --blue: #8899ff;
       }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .notes {
+        display: none;
+      }
+
       .reveal h1 {
         font-family: "Strange New Worlds - Poster";
         letter-spacing: 8px;
@@ -41,15 +58,6 @@
       }
 
       .reveal h2 {
-        font-size: 3em;
-        color: var(--blue);
-        background: hsl(0 0% 0% / 0.4);
-        padding: 0.5em;
-        padding-block-end: 0.2em;
-        border-radius: 80px;
-      }
-
-      .reveal h3 {
         color: var(--red);
         font-size: 2em;
       }
@@ -74,6 +82,7 @@
       }
 
       .reveal blockquote,
+      .reveal .info,
       .reveal pre {
         --block-edge-width: 60px;
         --inline-start-edge-width: 150px;
@@ -133,7 +142,8 @@
           padding-inline: 0.1em;
         }
 
-        p:last-child {
+        p:last-child,
+        ul:last-child {
           border-radius: inherit;
           border-top-left-radius: var(--inner-border-radius);
           border-bottom-left-radius: var(--inner-border-radius);
@@ -223,15 +233,6 @@
       .reveal ul {
         list-style-image: url("dist/Starfleet_Combadge_TNG.svg");
         margin-inline-start: 0;
-
-        li {
-          text-indent: -0.5em;
-
-          &::marker {
-            font-size: 2em;
-            line-height: 0.1;
-          }
-        }
       }
     </style>
   </head>
@@ -239,6 +240,9 @@
     <div class="reveal">
       <div class="slides">
         <section data-background-image="dist/enterprise.jpg">
+          <span class="sr-only">
+            Background photo of the starship Enterprise from Star Trek.
+          </span>
           <div
             style="
               background: radial-gradient(
@@ -270,54 +274,324 @@
             Don’t #@!%<br />
             the customer
           </div>
-        </section>
-
-        <section data-transition="fade-in">
-          <ul>
-            <li class="fragment">The European Accessibility Act 2025</li>
-            <li class="fragment">Section 508</li>
-            <li class="fragment">Disability Discrimination Act 1992</li>
-          </ul>
+          <div class="notes">
+            - list of tools in approximately the order you would use them - some
+            of these tools are publicly available and you can just start using
+            them directly (most of even free) - some of them are amalgamations
+            of different tools - you'll need to work you what combination you
+            need for your use case - some are specific things we've built
+            in-house, but i've included them because the idea scales outside of
+            atlassian mention that i'm focussing on the dev side of things, but
+            that accesibility starts with design
+          </div>
         </section>
 
         <section>
           <a href="https://www.atlassian.com/accessibility"
             >https://www.atlassian.com/accessibility</a
           >
-        </section>
-
-        <section data-state="inverse" data-transition="fade-out">
-          <em class="r-fit-text"
-            >Accessibility<br />
-            is hard</em
-          >
-        </section>
-
-        <section>
-          <blockquote cite="https://www.accessibility.uxdesign.cc/">
-            <cite>Giving a damn about accessibility</cite>
-            <p>
-              Your first attempt at making anything accessible will be awful.
-              <span>—Sheri Byrne-Haber</span>
-            </p>
-          </blockquote>
+          <div class="notes">
+            accessiblity support portal questions are routed directly to our
+            central a11y team, so the customer is immediately speaking to
+            someone who understands things like how to use a screen reader
+            tickets have a11y-specific SLOs
+          </div>
         </section>
 
         <section>
-          <ul>
-            <li>Automated tooling</li>
-            <li>Knowledge sharing</li>
-            <li>Expert input</li>
+          <a href="https://atlassian.design/components">
+            <svg
+              aria-label="Atlassian Design"
+              fill="none"
+              viewBox="0 0 281 30"
+              xmlns="http://www.w3.org/2000/svg"
+              width="75%"
+            >
+              <path
+                fill="#E2E3E4"
+                d="M6.756 18.693a.477.477 0 0 1-.433.26H.488c-.346 0-.606-.39-.433-.736l4.193-8.384c.172-.346.562-.346.82-.087 2.206 2.377 2.94 6.353 1.686 8.946l.002.001ZM8.14 2.143C5.806 5.86 5.935 9.965 7.492 13.076l2.81 5.617c.087.172.26.26.433.26h5.835c.39 0 .606-.39.434-.736 0 0-7.869-15.73-8.04-16.12-.173-.302-.606-.345-.822.044l-.002.002ZM54.87 1.86v17.091H37.775V1.86h17.097Zm-3.418 8.546a5.127 5.127 0 0 0-5.13-5.128 5.127 5.127 0 1 0 0 10.255 5.128 5.128 0 0 0 5.13-5.127ZM26.584 1.86a8.547 8.547 0 0 0 8.548 8.546 8.547 8.547 0 0 0-8.548-8.546Zm8.548 8.546a8.547 8.547 0 0 0-8.548 8.545 8.547 8.547 0 0 0 8.548-8.546Zm-8.548 8.545a8.547 8.547 0 0 0-8.549-8.546 8.547 8.547 0 0 0 8.549 8.546Zm-8.549-8.546a8.547 8.547 0 0 0 8.549-8.545 8.546 8.546 0 0 0-8.549 8.546ZM63.557 1.86v2.504l2.504 2.503 2.505-2.503V1.86h-5.01Zm5.007 17.091v-2.504l-2.505-2.503-2.504 2.503v2.504H68.564Zm1.77-16.359-1.77 1.77v3.54h3.54l1.772-1.77-3.542-3.54Zm-12.089 3.54 1.77 1.77h3.542v-3.54l-1.77-1.77-3.542 3.54Zm16.364 1.77h-2.504L69.6 10.405l2.505 2.504h2.504V7.902Zm-.733 6.775-1.771-1.77h-3.541v3.54l1.77 1.77 3.541-3.54Zm-12.09 3.54 1.77-1.77v-3.54h-3.54l-1.771 1.77 3.541 3.54Zm-4.275-5.31h2.505l2.504-2.503L60.015 7.9h-2.504v5.008Zm8.548-5.005a2.505 2.505 0 1 0 0 5.01 2.505 2.505 0 0 0 0-5.01ZM82.31 1.86h-2.026a3.026 3.026 0 0 0-3.026 3.025c7.765.004 14.06 6.294 14.065 14.057v.002h.008a3.018 3.018 0 0 0 3.018-3.016V1.86H82.31Zm-5.058 6.836v10.255H87.51c0-5.663-4.593-10.255-10.258-10.255ZM110.802 15.421c-1.197 0-2.394-.131-3.721-.395l-1.198 3.684h-3.435l6.324-17.289h4.216l6.299 17.29h-3.436l-1.197-3.685c-1.379.264-2.602.395-3.852.395Zm0-2.579c.963 0 1.926-.079 3.045-.263L110.88 3.5l-2.993 9.105c1.067.158 2.004.237 2.915.237ZM123.301 14.263c0 1.08.624 1.763 1.848 1.763.494 0 .937-.079 1.301-.158v2.737c-.468.105-.989.21-1.796.21-2.941 0-4.242-1.736-4.242-4.315V8.026h-1.874V5.421h1.874v-2.79h2.889v2.79h3.149v2.605h-3.149v6.237ZM133.563 18.658c-.208.079-.651.131-1.327.131-2.291 0-3.748-1.079-3.748-3.684V.053h2.941v14.684c0 1.026.677 1.395 1.509 1.395.235 0 .365 0 .625-.027v2.553ZM137.043 12.079c0 2.816 1.093 4.237 3.097 4.237 1.717 0 3.279-1.132 3.279-3.71v-1.08c0-2.579-1.406-3.71-3.071-3.71-2.186 0-3.305 1.5-3.305 4.263Zm6.376 6.631v-2.394c-.807 1.763-2.342 2.658-4.268 2.658-3.384 0-5.023-2.974-5.023-6.895 0-3.763 1.717-6.921 5.283-6.921 1.848 0 3.253.947 4.008 2.631V5.421h2.941v13.29h-2.941ZM158.243 14.974c0 2.342-1.457 4-5.075 4-2.03 0-3.696-.474-4.711-1v-2.816c1.145.658 3.097 1.29 4.789 1.29 1.458 0 2.238-.606 2.238-1.474 0-.842-.676-1.342-2.811-1.842-3.149-.71-4.346-1.974-4.346-4.106 0-2.42 1.822-3.868 4.919-3.868 1.77 0 3.409.42 4.398.974v2.736c-1.613-.736-3.019-1.184-4.424-1.184-1.431 0-2.186.474-2.186 1.342 0 .816.546 1.29 2.707 1.79 3.175.71 4.502 1.92 4.502 4.158ZM169.414 14.974c0 2.342-1.458 4-5.075 4-2.03 0-3.696-.474-4.711-1v-2.816c1.145.658 3.097 1.29 4.789 1.29 1.457 0 2.238-.606 2.238-1.474 0-.842-.677-1.342-2.811-1.842-3.149-.71-4.346-1.974-4.346-4.106 0-2.42 1.822-3.868 4.919-3.868 1.77 0 3.409.42 4.398.974v2.736c-1.613-.736-3.019-1.184-4.424-1.184-1.432 0-2.186.474-2.186 1.342 0 .816.546 1.29 2.706 1.79 3.176.71 4.503 1.92 4.503 4.158ZM170.721 1.868c0-1.184.833-1.868 1.952-1.868s1.952.684 1.952 1.868c0 1.185-.833 1.895-1.952 1.895s-1.952-.71-1.952-1.895Zm.468 16.842V5.421h2.941v13.29h-2.941ZM178.828 12.079c0 2.816 1.093 4.237 3.097 4.237 1.718 0 3.28-1.132 3.28-3.71v-1.08c0-2.579-1.406-3.71-3.071-3.71-2.187 0-3.306 1.5-3.306 4.263Zm6.377 6.631v-2.394c-.807 1.763-2.343 2.658-4.269 2.658-3.383 0-5.023-2.974-5.023-6.895 0-3.763 1.718-6.921 5.284-6.921 1.847 0 3.253.947 4.008 2.631V5.421h2.941v13.29h-2.941ZM202.163 10.842v7.868h-2.941v-8c0-2.052-.807-2.947-2.629-2.947-1.795 0-3.019 1.21-3.019 3.553v7.394h-2.941V5.421h2.941v2.21c.807-1.578 2.265-2.473 4.034-2.473 2.967 0 4.555 2.079 4.555 5.684ZM215.328 4.316h-3.383v11.5h3.513c3.488 0 5.231-1.869 5.231-5.658 0-3.842-1.665-5.842-5.361-5.842Zm-6.506 14.395V1.42h6.61c5.648 0 8.354 3.5 8.354 8.684 0 5.237-2.732 8.605-8.354 8.605h-6.61ZM231.214 7.579c-2.082 0-3.123 1.368-3.332 3.526h6.377c-.13-2.29-1.119-3.526-3.045-3.526Zm5.205 10.605c-1.119.553-2.785.79-4.216.79-5.023 0-7.209-2.71-7.209-6.869 0-4.052 2.212-6.947 6.298-6.947 4.138 0 5.804 2.868 5.804 6.947v1.027h-9.188c.313 2.026 1.614 3.184 4.373 3.184 1.535 0 2.915-.29 4.138-.684v2.552ZM248.321 14.974c0 2.342-1.457 4-5.075 4-2.03 0-3.696-.474-4.711-1v-2.816c1.145.658 3.097 1.29 4.789 1.29 1.458 0 2.238-.606 2.238-1.474 0-.842-.676-1.342-2.81-1.842-3.15-.71-4.347-1.974-4.347-4.106 0-2.42 1.822-3.868 4.919-3.868 1.77 0 3.41.42 4.398.974v2.736c-1.613-.736-3.019-1.184-4.424-1.184-1.431 0-2.186.474-2.186 1.342 0 .816.546 1.29 2.707 1.79 3.175.71 4.502 1.92 4.502 4.158ZM249.628 1.868c0-1.184.833-1.868 1.952-1.868s1.952.684 1.952 1.868c0 1.185-.833 1.895-1.952 1.895s-1.952-.71-1.952-1.895Zm.469 16.842V5.421h2.94v13.29h-2.94ZM264.06 17.5v-1.368c-.807 1.763-2.343 2.631-4.268 2.631-3.332 0-4.971-2.92-4.971-6.79 0-3.71 1.691-6.815 5.231-6.815 1.848 0 3.253.947 4.008 2.605V5.421h2.915v11.921c0 3.974-1.9 6.658-6.793 6.658-2.082 0-3.461-.29-4.763-.71V20.5c1.458.526 2.941.816 4.581.816 3.019 0 4.06-1.605 4.06-3.816Zm-6.377-5.526c0 2.79 1.094 4.184 3.098 4.184 1.769 0 3.279-1.158 3.279-3.763V11.5c0-2.579-1.38-3.71-3.045-3.71-2.186 0-3.332 1.5-3.332 4.184ZM280.969 10.842v7.868h-2.941v-8c0-2.052-.807-2.947-2.629-2.947-1.796 0-3.019 1.21-3.019 3.553v7.394h-2.941V5.421h2.941v2.21c.807-1.578 2.264-2.473 4.034-2.473 2.967 0 4.555 2.079 4.555 5.684Z"
+              ></path></svg
+          ></a>
+        </section>
+
+        <section>
+          <style>
+            .skill-list {
+              width: fit-content;
+              margin: auto;
+            }
+            .skill-row {
+              border-radius: 4px;
+              color: black;
+              background: #f0f1f3;
+              position: relative;
+              margin-block: 12px;
+              overflow: hidden;
+              padding-inline: 20px;
+              transform: skew(-20deg);
+
+              .skill-accent {
+                width: 8px;
+                height: 55px;
+                position: absolute;
+                left: 0px;
+                background: var(--skill-colour);
+              }
+
+              .skill-content {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                transform: skew(20deg);
+              }
+            }
+            .skill-content svg {
+              width: 40px;
+              stroke: var(--skill-colour);
+            }
+          </style>
+
+          <ul class="skill-list">
+            <li class="skill-row" style="--skill-colour: #4577dd">
+              <div class="skill-accent"></div>
+              <div class="skill-bg"></div>
+              <div class="skill-content">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#4E78E2"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M17 3l4 4-11 11H6v-4z" />
+                  <path d="M15 5l4 4" />
+                  <path d="M17.5 2.5 a 2 2 0 0 1 4 4" />
+                </svg>
+                <span class="skill-name">a11y-annotate</span>
+              </div>
+            </li>
+
+            <li class="skill-row" style="--skill-colour: #6f9634">
+              <div class="skill-accent"></div>
+              <div class="skill-bg"></div>
+              <div class="skill-content">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#7C5CE0"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M4 6 h16" />
+                  <path d="M4 10 h16" />
+                  <path d="M4 14 h8" />
+                  <path d="M4 18 h6" />
+                  <path
+                    stroke-width="1"
+                    fill="var(--skill-colour)"
+                    d="M16.7 13.2 a 3 3 0 0 0 3 3 a 3 3 0 0 0 -3 3 a 3 3 0 0 0 -3 -3 a 3 3 0 0 0 3 -3"
+                  />
+                </svg>
+                <span class="skill-name">a11y-assist</span>
+              </div>
+            </li>
+
+            <li class="skill-row" style="--skill-colour: #d24f42">
+              <div class="skill-accent"></div>
+              <div class="skill-bg"></div>
+              <div class="skill-content">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#1FB6C9"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M8 4 l-4 3, 4 3" />
+                  <path d="M18 4 6 20" />
+                  <path d="M17 12 l4 3, -4 3" />
+                </svg>
+                <span class="skill-name">a11y-foundation</span>
+              </div>
+            </li>
+
+            <li class="skill-row" style="--skill-colour: #4577dd">
+              <div class="skill-accent"></div>
+              <div class="skill-bg"></div>
+              <div class="skill-content">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#E8821A"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                <span class="skill-name">a11y-pr-review</span>
+              </div>
+            </li>
           </ul>
         </section>
 
+        <section>
+          <style>
+            .reveal .terminal-list {
+              list-style: "> ";
+            }
+          </style>
+          <div class="info">
+            <ul class="terminal-list">
+              <li class="fragment">
+                Before producing code, define keyboard/focus flow &amp;
+                names/roles/states
+              </li>
+              <li class="fragment">Add aria-label for icon-only buttons</li>
+              <li class="fragment">
+                Use Atlassian Design System components when available
+              </li>
+            </ul>
+          </div>
+
+          <div class="notes">
+            these skills include a broad range of things, include general a11y
+            advice, advice for specific elements, and a tonne of stuff that's
+            very specific to our design system
+          </div>
+        </section>
+
         <section
-          data-background-image="dist/Data.png"
-          data-background-position="-100px -60px"
-          data-background-size="calc(100% + 100px)"
+          data-background-image="dist/cleaning.jpg"
+          data-background-position="50vw"
+          data-background-size="contain"
         >
-          <h2 style="width: min-content; position: fixed; right: -100px">
-            Automated tooling
+          <div style="width: 50%">
+            <span class="sr-only">
+              Background photo of a crew member vacuuming the bridge of the
+              starship Enterprise from Star Trek.
+            </span>
+            <h2>Linting</h2>
+            <ul style="list-style-image: none; list-style-type: none">
+              <li class="fragment">
+                Deque's
+                <a href="https://www.deque.com/axe/devtools/linter/"
+                  >axe Accessibility Linter</a
+                >
+              </li>
+              <li style="opacity: 0" aria-hidden="true">
+                <a href="https://www.npmjs.com/package/eslint-plugin-jsx-a11y"
+                  >eslint-plugin-jsx-a11y</a
+                >
+              </li>
+              <li style="opacity: 0" aria-hidden="true">
+                <a
+                  href="https://www.npmjs.com/package/eslint-plugin-styled-components-a11y"
+                  >eslint-plugin-styled-components-a11y</a
+                >
+              </li>
+              <li style="opacity: 0" aria-hidden="true">
+                <a href="https://atlassian.design"
+                  >Custom design system rules</a
+                >
+                <div class="notes">
+                  eg require use of design system tokens for colours
+                </div>
+              </li>
+              <li style="opacity: 0" aria-hidden="true">
+                <a href="https://oxc.rs/docs/guide/usage/linter/rules.html"
+                  >oxlint</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="notes">
+            it's important to integrate stuff into your existing workflows to
+            assure it actually happens easy with automated tooling that fits
+            into existing build pipelines bit trickier with manual tests
+          </div>
+        </section>
+
+        <section>
+          <img
+            src="dist/linter.png"
+            alt="IDE displaying an HTML anchor element containing an image element, with red squiggly underlines denoting linting errors on the link and image, and error text explaining the link needs discernible text"
+          />
+          <div class="notes">
+            upside/downside only work if you're writing code artisinally,
+            because coding agents are immune to the effects of red-squiggly
+            lines
+          </div>
+        </section>
+
+        <section
+          data-background-image="dist/cleaning.jpg"
+          data-background-position="50vw"
+          data-background-size="contain"
+        >
+          <div style="width: 50%">
+            <span class="sr-only">
+              Background photo of a crew member vacuuming the bridge of the
+              starship Enterprise from Star Trek.
+            </span>
+            <h2>Linting</h2>
+            <ul style="list-style-image: none; list-style-type: none">
+              <li>
+                Deque's
+                <a href="https://www.deque.com/axe/devtools/linter/"
+                  >axe Accessibility Linter</a
+                >
+              </li>
+              <li class="fragment">
+                <a href="https://www.npmjs.com/package/eslint-plugin-jsx-a11y"
+                  >eslint-plugin-jsx-a11y</a
+                >
+              </li>
+              <li class="fragment">
+                <a
+                  href="https://www.npmjs.com/package/eslint-plugin-styled-components-a11y"
+                  >eslint-plugin-styled-components-a11y</a
+                >
+              </li>
+              <li class="fragment">
+                <a href="https://atlassian.design"
+                  >Custom design system rules</a
+                >
+              </li>
+              <li class="fragment">
+                <a href="https://oxc.rs/docs/guide/usage/linter/rules.html"
+                  >oxlint</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section
+          data-transition="fade-in"
+          data-background-image="dist/tricorder.jpg"
+        >
+          <span class="sr-only">
+            Background photo of a tricorder from Star Trek.
+          </span>
+          <h2
+            style="
+              background: radial-gradient(
+                circle,
+                hsl(0 100% 0% / 0.8),
+                transparent 60%
+              );
+              width: fit-content;
+              margin-inline: auto;
+              padding: 2em;
+              border-radius: 30px;
+            "
+          >
+            tests
           </h2>
         </section>
 
@@ -352,184 +626,230 @@
         </section>
 
         <section>
-          <code style="margin-inline-start: -4em">getByRole({'textbox',</code
-          ><br />
-          <code>{ name: 'Episode name' })</code>
-        </section>
+          <div style="position: relative">
+            <pre><code>
 
-        <section>
-          <ul>
-            <li>Lost in Translation <a href="./s2e6.html">Play episode</a></li>
-            <li>Those Old Scientists <a href="./s2e7.html">Play episode</a></li>
-            <li>
-              Under the Cloak of War <a href="./s2e8.html">Play episode</a>
-            </li>
-            <li>Subspace Rhapsody <a href="./s2e9.html">Play episode</a></li>
-          </ul>
-        </section>
 
-        <section>
-          <pre>
-            <code class="jsx" data-line-numbers="|4-7">it('renders a link to play each episode', () => {
-    render(&lt;EpisodeList /&gt;)
 
-    const link = screen.getByRole(
-                    'link', 
-                    { name: 'Play episode' }
-                 ) 
 
-    expect(link).toBeInTheDocument()
-  })
-               </code>
-          </pre>
-        </section>
 
-        <section>
-          <code>
-            TestingLibraryElementError: Found multiple elements with the role
-            "link" and name "Play episode"
-          </code>
-        </section>
+    screen.getByRole('button', { name: 'Submit' })
 
-        <section>
-          <style>
-            i {
-              font-style: italic;
-            }
-          </style>
-          <ul>
-            <li>
-              <a href="./s2e6.html">Play <i>Lost in Translation</i></a>
-            </li>
-            <li>
-              <a href="./s2e7.html">Play <i>Those Old Scientists</i></a>
-            </li>
-            <li>
-              <a href="./s2e8.html">Play <i>Under the Cloak of War</i></a>
-            </li>
-            <li>
-              <a href="./s2e9.html">Play <i>Subspace Rhapsody</i></a>
-            </li>
-          </ul>
-        </section>
 
-        <section>
-          <h3>Linting</h3>
-          <ul>
-            <li class="fragment">
-              Deque's
-              <a href="https://www.deque.com/axe/devtools/linter/"
-                >axe Accessibility Linter</a
-              >
-            </li>
-          </ul>
-        </section>
 
-        <section>
-          <ul>
-            <li>Lost in Translation <a href="./s2e6.html">▶️</a></li>
-            <li>Those Old Scientists <a href="./s2e7.html">▶️</a></li>
-            <li>Under the Cloak of War <a href="./s2e8.html">▶️</a></li>
-            <li>Subspace Rhapsody <a href="./s2e9.html">▶️</a></li>
-          </ul>
-        </section>
 
-        <section>
-          <pre><code class="html" data-line-numbers=""><a href="./s2e6.html">
-	<img src="./play-button.svg" />
-</a></code></pre>
-        </section>
 
-        <section>
-          <img
-            src="dist/linter.png"
-            alt="The code from the previous slide, with red squiggly underlines denoting linting errors on the link and image, and error text explaining the link needs discernible text"
-          />
-        </section>
-
-        <section>
-          <h3>Linting</h3>
-          <ul>
-            <li>
-              Deque's
-              <a href="https://www.deque.com/axe/devtools/linter/"
-                >axe Accessibility Linter</a
-              >
-            </li>
-            <li class="fragment" data-fragment-index="1">
-              <div class="fragment strike" data-fragment-index="2">
-                @atlassian/eslint-plugin-a11y
-              </div>
-            </li>
-            <li class="fragment" data-fragment-index="3">
-              <a href="https://www.npmjs.com/package/eslint-plugin-jsx-a11y"
-                >eslint-plugin-jsx-a11y</a
-              >
-            </li>
-            <li class="fragment" data-fragment-index="3">
-              <a
-                href="https://www.npmjs.com/package/eslint-plugin-styled-components-a11y"
-                >eslint-plugin-styled-components-a11y</a
-              >
-            </li>
-          </ul>
-        </section>
-
-        <section>
-          <h3>
-            Accessibility checks <br />
-            in unit tests
-          </h3>
-        </section>
-
-        <section>
-          <div
+          </code></pre>
+          </div>
+          <svg
+            viewBox="0 0 680 280"
+            xmlns="http://www.w3.org/2000/svg"
             style="
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              font-size: 1.8em;
+              font-family: monospace;
+              position: absolute;
+              top: 20px;
+              left: 0;
             "
+            role="image"
           >
-            <a href="https://www.npmjs.com/package/jest-axe">jest-axe</a>
+            <title>
+              Arrow labelled "role", pointing to "button" and arrow labelled
+              "accessible name", pointing to name: "Submit"
+            </title>
+            <!-- top arrow -->
+            <g fill="var(--light-gold)" transform="translate(0, 30)">
+              <text
+                x="230"
+                y="48"
+                font-size="20"
+                font-weight="600"
+                text-anchor="middle"
+                transform="translate(-15, 15)"
+                aria-hidden="true"
+              >
+                role
+              </text>
+              <path
+                d="M 250 65 Q 290 95 306.8 114.7"
+                stroke="var(--light-gold)"
+                stroke-width="5"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <polygon points="313.6,122 301.67,119.42 311.94,109.91" />
+            </g>
 
-            <div
-              class="fragment"
-              style="
-                display: flex;
-                gap: 0.25em;
-                align-items: center;
-                width: max-content;
-              "
-            >
+            <!-- bottom arrow -->
+            <g fill="var(--light-gold)" transform="translate(-110, 60)">
+              <text
+                x="550"
+                y="205"
+                font-size="20"
+                font-weight="600"
+                text-anchor="middle"
+                aria-hidden="true"
+              >
+                accessible name
+              </text>
+              <path
+                d="M 543 175 Q 545 170 550 137.9"
+                stroke="var(--light-gold)"
+                stroke-width="5"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <polygon points="551.2,128 556.86,138.81 542.98,137.02" />
+            </g>
+          </svg>
+        </section>
+
+        <section>
+          <pre><code class="text">
+
+
+
+    TestingLibraryElementError: Found 
+    multiple elements with the role "link"
+    and name "Play episode"
+
+
+
+          </code></pre>
+        </section>
+
+        <section
+          data-background-image="dist/kirk-chopping-wood.png"
+          data-background-position="0 center"
+          data-background-size="contain"
+        >
+          <span class="sr-only">
+            Background photo of Captain Kirk chopping wood with an axe.
+          </span>
+          <div
+            style="display: grid; grid-template-columns: 1fr 1fr; width: 100%"
+          >
+            <div></div>
+            <div style="display: grid">
               <img
                 width="300px"
                 src="dist/deque-logo.png"
                 alt="Deque company logo"
+                style="margin: 0"
               />
-              <a href="https://github.com/dequelabs/axe-core">axe-core</a>
+              <a
+                style="font-size: 2em; text-align: start"
+                href="https://github.com/dequelabs/axe-core"
+                >axe-core</a
+              >
             </div>
+          </div>
+          <div class="notes">
+            tool from Deque that knows how to take rendered DOM and check it for
+            accessibility issues list of ~90 rules that are checked
           </div>
         </section>
 
-        <section>
-          <pre><code class="js" data-noescape data-line-numbers="|1-9|3,7|5|11-17|13-15">function EpisodeList({episodes}) { 
-	return (
-		&lt;ul>
-			{episodes.map(({ title, url }) => (
-			&lt;Episode key="{url}" title="{title}" url="{url}" />
-			))}
-		&lt;/ul>
-	) 
-} 
+        <section data-transition="fade-in-out">
+          <ul
+            style="
+              list-style: none;
+              padding: 0;
+              font-family: &quot;Comic Sans MS&quot;, sans-serif;
+              font-size: 20px;
+            "
+          >
+            <li style="display: flex; align-items: center; margin-bottom: 14px">
+              <span style="font-size: 32px; margin-right: 12px">✅</span>
+              <span style="text-decoration: line-through; color: #888"
+                >color-contrast — elements meet minimum color contrast
+                ratio</span
+              >
+            </li>
+            <li style="display: flex; align-items: center; margin-bottom: 14px">
+              <span style="font-size: 32px; margin-right: 12px">✅</span>
+              <span style="text-decoration: line-through; color: #888"
+                >image-alt — images have alternate text</span
+              >
+            </li>
+            <li style="display: flex; align-items: center; margin-bottom: 14px">
+              <span
+                style="
+                  font-size: 32px;
+                  margin-right: 12px;
+                  color: #ccc;
+                  border: 3px solid #ccc;
+                  border-radius: 8px;
+                  width: 28px;
+                  height: 28px;
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  box-sizing: border-box;
+                "
+              >
+              </span>
+              <span>label — form elements have associated labels</span>
+            </li>
+            <li style="display: flex; align-items: center; margin-bottom: 14px">
+              <span style="font-size: 32px; margin-right: 12px">✅</span>
+              <span style="text-decoration: line-through; color: #888"
+                >link-name — links have discernible text</span
+              >
+            </li>
+            <li style="display: flex; align-items: center; margin-bottom: 14px">
+              <span
+                style="
+                  font-size: 32px;
+                  margin-right: 12px;
+                  color: #ccc;
+                  border: 3px solid #ccc;
+                  border-radius: 8px;
+                  width: 28px;
+                  height: 28px;
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  box-sizing: border-box;
+                "
+              >
+              </span>
+              <span
+                >aria-required-attr — required ARIA attributes are
+                provided</span
+              >
+            </li>
+            <li style="display: flex; align-items: center; margin-bottom: 14px">
+              <span
+                style="
+                  font-size: 32px;
+                  margin-right: 12px;
+                  color: #ccc;
+                  border: 3px solid #ccc;
+                  border-radius: 8px;
+                  width: 28px;
+                  height: 28px;
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  box-sizing: border-box;
+                "
+              >
+              </span>
+              <span>heading-order — heading levels increase by one</span>
+            </li>
+          </ul>
+          <div class="notes">only tests page layout/structure, not flow</div>
+        </section>
 
-function Episode({ title, url }) { 
-	return (
-		&lt;div>
-			{title} &lt;PlayButton title="{title}" url="{url}" />
-		&lt;/div>
-	) 
-}</code></pre>
+        <section data-transition="fade-in">
+          <div>
+            <a href="https://www.npmjs.com/package/jest-axe">jest-axe</a>
+          </div>
+          <div>
+            <a href="https://playwright.dev/docs/accessibility-testing"
+              >@axe-core/playwright</a
+            >
+          </div>
         </section>
 
         <section>
@@ -547,65 +867,7 @@ it("is accessible", async () => {
         </section>
 
         <section>
-          <style>
-            .reveal pre.non-lcars {
-              padding: 0;
-              background: unset;
-
-              &::before,
-              &::after {
-                display: none;
-              }
-            }
-          </style>
-          <div>
-            Expected the HTML found at $('ul') to have no violations: <br />
-            <pre class="non-lcars"><code>&lt;ul>
-	&lt;div>
-	Those old scientists 
-		&lt;a href="./s2e7.html">
-			&lt;img src="./play-button.svg" alt="Play episode: Those Old Scientists">
-		&lt;/a>
-	&lt;/div>
-&lt;/ul></code></pre>
-            Received:
-            <code style="color: red; font-size: 0.8em"
-              >"&lt;ul> and &lt;ol> must only directly contain &lt;li>,
-              &lt;script> or &lt;template> elements (list)"</code
-            ><br /><br />
-            You can find more information on this issue here:<br />
-            <a
-              href="https://dequeuniversity.com/rules/axe/4.10/list?application=axeAPI"
-              >https://dequeuniversity.com/rules/axe/4.10/list?application=axeAPI</a
-            >
-          </div>
-        </section>
-
-        <section>
-          <code>setupAutoA11yTests()</code>
-        </section>
-
-        <section>
-          <h3>
-            Accessibility checks <br />
-            in end-to-end tests
-          </h3>
-
-          <ul>
-            <li>Cypress & Playwright end-to-end tests</li>
-            <li>Storybook stories</li>
-            <li>Visual regression tests</li>
-          </ul>
-        </section>
-
-        <section>
-          <a href="https://www.npmjs.com/package/@axe-core/playwright"
-            >@axe-core/playwright</a
-          >
-        </section>
-
-        <section>
-          <pre><code class="js" data-line-numbers="|6|8,9|11">import { test, expect } from '@playwright/test';
+          <pre><code class="js" data-line-numbers="|2|6|8,9|11">import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 test.describe('homepage', () => {
@@ -627,346 +889,698 @@ test.describe('homepage', () => {
         </section>
 
         <section>
-          <h3>Other automated checks</h3>
+          <h2>Automating axe-core tests</h2>
+          <pre class="fragment"><code class="js">
 
-          <ul>
-            <li class="fragment">
-              <a href="https://accessibilityinsights.io/"
-                >Accessibility Insights</a
-              >
-            </li>
-          </ul>
+
+      afterEach(() => {
+        expect(document.body).toBeAccessible()              
+      })
+
+
+          </code></pre>
         </section>
 
         <section>
-          <img
-            src="dist/a11y-insights.png"
-            alt="a11y insights automated checks"
-          />
-        </section>
-
-        <section>
-          <img
-            src="dist/tab-order.png"
-            alt="a screenshot of the checkbox select
-          component on atlassian.design, with the page's tab order annotated on
-          it"
-          />
-        </section>
-
-        <section>
-          <img
-            src="dist/a11y-insights-images.png"
-            alt="a11y insights images checks"
-          />
-        </section>
-
-        <section>
-          <h3>Other automated checks</h3>
-
-          <ul>
-            <li>
-              <a href="https://accessibilityinsights.io/"
-                >Accessibility Insights</a
-              >
-            </li>
-            <li class="fragment">
-              <a href="https://atlassian.design">atlassian.design</a>
-            </li>
-          </ul>
-        </section>
-
-        <section>
-          <div
-            style="
-              display: flex;
-              gap: 0.1em;
-              align-items: center;
-              justify-content: center;
-              font-size: 3em;
-            "
-          >
-            AI
-            <img
-              src="dist/rovo.png"
-              alt="(Atlassian Rovo)"
-              style="max-height: 100%; width: 1em"
-            />
+          <div class="r-fit-text">
+            <span
+              style="
+                color: var(--light-gold);
+                font-weight: bolder;
+                font-size: 1.2em;
+              "
+              >98%</span
+            >
+            of violations*
+          </div>
+          <div class="notes">
+            by our estimation 93%-98% of violations that can be caught by
+            automated testing are being caught by automated testing
           </div>
         </section>
 
         <section>
-          <blockquote
-            cite="https://www.deque.com/blog/automated-testing-study-identifies-57-percent-of-digital-accessibility-issues/"
+          <style>
+            ul.grid-list {
+              display: grid;
+              grid-template-columns: min-content 1fr;
+              margin-inline: auto;
+              width: fit-content;
+              gap: 8px;
+              font-size: 2em;
+            }
+
+            ul.grid-list li {
+              display: grid;
+              grid-template-columns: subgrid;
+              grid-column: 1/-1;
+            }
+          </style>
+          <ul class="grid-list">
+            <li class="fragment">
+              <div>1.4.11</div>
+              Non-text Contrast
+            </li>
+            <li class="fragment">
+              <div>2.1.1</div>
+              Keyboard
+            </li>
+            <li class="fragment">
+              <div>3.3.3</div>
+              Error suggestion
+            </li>
+          </ul>
+          <div class="notes">
+            there are companies working on using AI to solve some of these
+            issues, but they're generally getting better at more complex
+            versions of the what - eg contrast across multiple contexts - while
+            still struggling with the meaning part
+          </div>
+        </section>
+
+        <section data-background-image="dist/manual-testing.jpg">
+          <span class="sr-only">
+            Background photo of Scotty from Star Trek IV typing on the keyboard
+            of a 1980s Macintosh computer.
+          </span>
+          <h2
+            style="
+              background: radial-gradient(
+                circle,
+                hsl(0 100% 0% / 0.8),
+                transparent 60%
+              );
+              width: fit-content;
+              margin-inline: auto;
+              padding: 2em;
+              border-radius: 30px;
+            "
           >
-            <cite>www.deque.com/blog</cite>
-            <p>
-              Deque Study Shows Its Automated Testing Identifies 57 Percent of
-              Digital Accessibility Issues, Surpassing Accepted Industry
-              Benchmarks
-            </p>
-          </blockquote>
-        </section>
-
-        <section data-state="inverse" data-transition="fade-out">
-          <em class="r-fit-text"
-            >Accessibility<br />
-            depends on context</em
-          >
+            Manual a11y testing
+          </h2>
+          <div class="notes">
+            we have an internal team, you can hire a consultancy something we're
+            trying to automate is what actually gets sent to manual testing
+          </div>
         </section>
 
         <section>
-          <img
-            src="/dist/star-trek-picard-data-easter-eggs-spot.jpg"
-            alt="Data the android stroking his pet cat Spot"
-          />
-          <cite
-            style="font-size: 0.5em; position: absolute; right: 0; bottom: 0"
-          >
-            Source:
-            <a
-              style="font-style: italic"
-              href="https://screenrant.com/star-trek-tng-data-love-cats-ironic-brent-spiner/"
-              >Data's Love Of Cats In Star Trek Has An Ironic Real-Life Twist</a
-            >
-          </cite>
-        </section>
-
-        <section>
-          <blockquote>
-            <cite>GPT-5 mini</cite>
-            <p
-              style="
-                text-transform: none;
-                line-height: 1.2;
-                font-size: 0.8em;
-                font-family: &quot;Source Sans Pro&quot;, Helvetica, sans-serif;
-              "
-            >
-              Close-up of Star Trek: Picard characters Data (left) and Jean‑Luc
-              Picard (right) seated side-by-side in profile facing right; Data’s
-              pale, synthetic skin and dark hair contrast with Picard’s older,
-              gray beard and thoughtful expression, both wearing dark jackets
-              against a warm, softly lit background.
-            </p>
-          </blockquote>
-        </section>
-
-        <section>
-          <img
-            src="/dist/star-trek-picard-data-easter-eggs-spot.jpg"
-            alt="Data the android stroking his pet cat Spot"
-          />
-          <cite
-            style="font-size: 0.5em; position: absolute; right: 0; bottom: 0"
-          >
-            Source:
-            <a
-              style="font-style: italic"
-              href="https://screenrant.com/star-trek-tng-data-love-cats-ironic-brent-spiner/"
-              >Data's Love Of Cats In Star Trek Has An Ironic Real-Life Twist</a
-            >
-          </cite>
-        </section>
-
-        <section>
-          <blockquote>
-            <cite>GPT-5 mini</cite>
-            <p
-              style="
-                text-transform: none;
-                line-height: 1.2;
-                font-size: 0.8em;
-                font-family: &quot;Source Sans Pro&quot;, Helvetica, sans-serif;
-              "
-            >
-              Close-up of Data (left) and his pet cat Spot (right) seated
-              side-by-side in profile facing right; Data’s pale, synthetic skin
-              and dark hair contrast with Spot’s orange-and-white fur, both lit
-              by warm, soft lighting.
-            </p>
-          </blockquote>
-        </section>
-
-        <section>
-          <h4 style="text-transform: none">
-            How Data Loving Cats Helped Make Him More Human
-          </h4>
-          <img
-            src="/dist/star-trek-picard-data-easter-eggs-spot.jpg"
-            alt="Data the android stroking his pet cat Spot"
-          />
-          <cite
-            style="font-size: 0.5em; position: absolute; right: 0; bottom: 0"
-          >
-            Source:
-            <a
-              style="font-style: italic"
-              href="https://screenrant.com/star-trek-tng-data-love-cats-ironic-brent-spiner/"
-              >Data's Love Of Cats In Star Trek Has An Ironic Real-Life Twist</a
-            >
-          </cite>
-        </section>
-
-        <section>
-          <blockquote>
-            <cite>GPT-5 mini</cite>
-            <p
-              style="
-                text-transform: none;
-                line-height: 1.2;
-                font-size: 0.8em;
-                font-family: &quot;Source Sans Pro&quot;, Helvetica, sans-serif;
-              "
-            >
-              Close-up of Data (Brent Spiner) holding his orange-and-white tabby
-              Spot; Data’s pale, android features and dark hair contrast with
-              Spot’s fur as they sit side-by-side in warm, soft lighting,
-              conveying a tender, nostalgic moment.
-            </p>
-          </blockquote>
-        </section>
-
-        <section>
-          <blockquote>
-            <cite>Me</cite>
-            <p
-              style="
-                text-transform: none;
-                line-height: 1.2;
-                font-size: 0.8em;
-                font-family: &quot;Source Sans Pro&quot;, Helvetica, sans-serif;
-              "
-            >
-              In a scene from Star Trek: Picard, an elderly Data holds his cat,
-              Spot, lovingly stroking Spot's head. The cat appears non-plussed.
-            </p>
-          </blockquote>
-        </section>
-
-        <section data-state="inverse" data-transition="fade-out">
-          <em class="r-fit-text"
-            >Accessibility<br />
-            begins with design</em
-          >
+          <div style="display: grid; grid-template-columns: auto auto">
+            <img
+              height="300vh"
+              src="dist/switcheroo.svg"
+              alt="Kangaroo emoji"
+            />
+            <img
+              src="dist/padd.jpg"
+              height="300vh"
+              alt="Star Trek PADD (personal access display device)"
+              class="fragment"
+            />
+          </div>
+          <div class="notes">
+            switcheroo + triage for manual testing Atlassian Accessibility
+          </div>
+          <div class="notes">
+            manual audit results basically the ticket gets assigned to the
+            relevant team, and has a due date there's a process for sending the
+            ticket to another team if it was incorrectly assigned and also for
+            retesting once it's fixed similar process to how we deal with
+            security vulnerabilities, version patches etc
+          </div>
         </section>
 
         <section
-          data-background-image="dist/troi.jpeg"
-          data-background-position="-100px"
+          data-background-image="dist/lecutis.jpg"
+          data-background-position="50vw"
+          data-background-size="auto cover"
         >
-          <h2 style="position: fixed; right: -200px; width: min-content">
-            Knowledge sharing
-          </h2>
-        </section>
-
-        <section>
-          <h3>Knowledge sharing</h3>
-          <ul>
-            <li class="fragment">Training</li>
-            <li class="fragment">Accessibility Champions Program</li>
-          </ul>
-        </section>
-
-        <section>
-          <img
-            style="height: 60vh"
-            src="dist/29711295-d503-48b9-a144-cd3538f882e5.png"
-            alt="Atlassian Accessibility Champions Program logo"
-          />
-        </section>
-
-        <section>
-          <ul>
-            <li class="fragment">Pick low-hanging fruit</li>
-            <li class="fragment">Make it easy for people</li>
-          </ul>
-        </section>
-
-        <section>
-          <div style="display: flex; align-items: center; gap: 2em">
-            <img
-              src="dist/a11y-dev-tools-ff.png"
-              alt="Accessibility dev tools in Firefox"
-              width="60%"
-            />
-            <img
-              src="dist/a11y-dev-tools-chrome.png"
-              alt="Accessibility dev tools in Chrome"
-              width="40%"
-            />
+          <span class="sr-only">Background image of Lecutis of Borg</span>
+          <div
+            style="
+              width: 50%;
+              margin-inline-start: -100px;
+              font-family: &quot;Strange New Worlds - Poster&quot;;
+              color: var(--blue);
+              font-size: 2.5em;
+              line-height: 1.2;
+              word-spacing: 0.2em;
+            "
+          >
+            Work with existing systems
+          </div>
+          <div class="notes">
+            it's important to integrate stuff into your existing workflows to
+            assure it actually happens easy with automated tooling that fits
+            into existing build pipelines bit trickier with manual tests
           </div>
         </section>
 
         <section>
-          <ul>
-            <li>Pick low-hanging fruit</li>
-            <li>Make it easy for people</li>
-            <li class="fragment">Designers >> Developers</li>
+          <style>
+            :root {
+              --surface: #fcfcfb;
+              --page: #f2f1ee;
+              --ink-primary: #0b0b0b;
+              --ink-secondary: #52514e;
+              --ink-muted: #898781;
+              --gridline: #e1e0d9;
+              --baseline: #c3c2b7;
+              --border: rgba(11, 11, 11, 0.1);
+              --bar-blue: var(--blue);
+              --bar-purple: #8270db;
+              --bar-green: #2abb7f;
+              --bar-orange: var(--light-gold);
+              --shadow:
+                0 1px 2px rgba(11, 11, 11, 0.06),
+                0 8px 24px rgba(11, 11, 11, 0.08);
+            }
+            @media (prefers-color-scheme: dark) {
+              :root {
+                --surface: #1a1a19;
+                --page: #0d0d0d;
+                --ink-primary: #ffffff;
+                --ink-secondary: #c3c2b7;
+                --ink-muted: #8f8d86;
+                --gridline: #2c2c2a;
+                --baseline: #383835;
+                --border: rgba(255, 255, 255, 0.1);
+                --bar-blue: #4c9aff;
+                --bar-purple: #9f8fef;
+                --bar-green: #4bce97;
+                --bar-orange: #ffa057;
+                --shadow:
+                  0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+              }
+            }
+            :root[data-theme="dark"] {
+              --surface: #1a1a19;
+              --page: #0d0d0d;
+              --ink-primary: #ffffff;
+              --ink-secondary: #c3c2b7;
+              --ink-muted: #8f8d86;
+              --gridline: #2c2c2a;
+              --baseline: #383835;
+              --border: rgba(255, 255, 255, 0.1);
+              --bar-blue: #4c9aff;
+              --bar-purple: #9f8fef;
+              --bar-green: #4bce97;
+              --bar-orange: #ffa057;
+              --shadow:
+                0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+            }
+            :root[data-theme="light"] {
+              --surface: #fcfcfb;
+              --page: #f2f1ee;
+              --ink-primary: #0b0b0b;
+              --ink-secondary: #52514e;
+              --ink-muted: #898781;
+              --gridline: #e1e0d9;
+              --baseline: #c3c2b7;
+              --border: rgba(11, 11, 11, 0.1);
+              --bar-blue: #357de8;
+              --bar-purple: #8270db;
+              --bar-green: #2abb7f;
+              --bar-orange: #e2711d;
+              --shadow:
+                0 1px 2px rgba(11, 11, 11, 0.06),
+                0 8px 24px rgba(11, 11, 11, 0.08);
+            }
+
+            .graph-slide {
+              width: 100%;
+              max-width: 1280px;
+              aspect-ratio: 16 / 9;
+              display: flex;
+              flex-direction: column;
+              gap: clamp(12px, 2vw, 20px);
+            }
+
+            .graph-slide h1 {
+              margin: 0;
+              font-size: clamp(20px, 2.6vw, 32px);
+              font-weight: 600;
+              color: var(--ink-primary);
+              text-wrap: balance;
+              letter-spacing: -0.01em;
+            }
+
+            .chart-wrap {
+              flex: 1;
+              min-height: 0;
+            }
+
+            .chart-wrap svg {
+              width: 100%;
+              height: 100%;
+              display: block;
+              overflow: visible;
+            }
+
+            .axis-title {
+              fill: var(--ink-muted);
+              font-size: 14px;
+            }
+
+            .tick-label {
+              fill: var(--ink-muted);
+              font-size: 13px;
+              font-variant-numeric: tabular-nums;
+            }
+
+            .category-label {
+              fill: var(--ink-secondary);
+              font-size: 14px;
+            }
+
+            .category-label.emphasis {
+              fill: var(--ink-primary);
+              font-weight: 600;
+            }
+
+            .value-label {
+              fill: var(--ink-primary);
+              font-size: 14px;
+              font-variant-numeric: tabular-nums;
+            }
+
+            .value-label.emphasis {
+              font-weight: 600;
+              font-size: 15px;
+            }
+
+            .bar-blue {
+              fill: var(--bar-blue);
+            }
+            .bar-purple {
+              fill: var(--bar-blue);
+            }
+            .bar-green {
+              fill: var(--bar-blue);
+            }
+            .bar-orange {
+              fill: var(--bar-orange);
+            }
+
+            .gridline {
+              stroke: var(--gridline);
+              stroke-width: 1;
+            }
+
+            .baseline {
+              stroke: var(--baseline);
+              stroke-width: 1;
+            }
+
+            .value-label {
+              display: none;
+            }
+
+            @media (prefers-reduced-motion: no-preference) {
+              .bar-blue,
+              .bar-purple,
+              .bar-green,
+              .bar-orange {
+                animation: grow 0.5s ease-out;
+                transform-origin: bottom;
+              }
+              @keyframes grow {
+                from {
+                  transform: scaleY(0);
+                }
+                to {
+                  transform: scaleY(1);
+                }
+              }
+            }
+          </style>
+          <table class="sr-only" id="chart-table">
+            <caption>
+              Open accessibility issues by age
+            </caption>
+            <thead>
+              <tr>
+                <th>Age</th>
+                <th>Open issues</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Older than 6 months</td>
+                <td>16,394</td>
+              </tr>
+              <tr>
+                <td>6 months</td>
+                <td>962</td>
+              </tr>
+              <tr>
+                <td>5 months</td>
+                <td>1,645</td>
+              </tr>
+              <tr>
+                <td>4 months</td>
+                <td>1,710</td>
+              </tr>
+              <tr>
+                <td>3 months</td>
+                <td>1,733</td>
+              </tr>
+              <tr>
+                <td>2 months</td>
+                <td>1,799</td>
+              </tr>
+              <tr>
+                <td>1 month</td>
+                <td>1,973</td>
+              </tr>
+              <tr>
+                <td>Less than 1 month</td>
+                <td>396</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="graph-slide">
+            <h2
+              style="
+                font-family: &quot;Source Sans Pro&quot;, sans-serif;
+                letter-spacing: -0.05em;
+                word-spacing: 0.2em;
+                color: white;
+              "
+            >
+              Issue age
+            </h2>
+            <div class="chart-wrap fragment">
+              <svg
+                viewBox="0 0 1280 640"
+                preserveAspectRatio="xMidYMid meet"
+                role="img"
+              >
+                <!-- y-axis title -->
+                <text
+                  class="axis-title"
+                  x="24"
+                  y="315"
+                  text-anchor="middle"
+                  transform="rotate(-90 24 315)"
+                >
+                  Open issues
+                </text>
+
+                <!-- gridlines + y ticks -->
+                <g>
+                  <line
+                    class="gridline"
+                    x1="90"
+                    y1="560"
+                    x2="1250"
+                    y2="560"
+                  ></line>
+                  <text class="tick-label" x="78" y="564" text-anchor="end">
+                    0
+                  </text>
+
+                  <line
+                    class="gridline"
+                    x1="90"
+                    y1="423.89"
+                    x2="1250"
+                    y2="423.89"
+                  ></line>
+                  <text class="tick-label" x="78" y="427.89" text-anchor="end">
+                    5,000
+                  </text>
+
+                  <line
+                    class="gridline"
+                    x1="90"
+                    y1="287.78"
+                    x2="1250"
+                    y2="287.78"
+                  ></line>
+                  <text class="tick-label" x="78" y="291.78" text-anchor="end">
+                    10,000
+                  </text>
+
+                  <line
+                    class="gridline"
+                    x1="90"
+                    y1="151.67"
+                    x2="1250"
+                    y2="151.67"
+                  ></line>
+                  <text class="tick-label" x="78" y="155.67" text-anchor="end">
+                    15,000
+                  </text>
+                </g>
+
+                <!-- baseline (x axis) -->
+                <line
+                  class="baseline"
+                  x1="90"
+                  y1="560"
+                  x2="1250"
+                  y2="560"
+                ></line>
+
+                <!-- bars: plot area x 90-1250 (width 1160), 8 bands of 145, bar width 96, radius 6 -->
+                <!-- band centers: 90 + 145*i + 72.5. colour = quartile band by value (blue -> purple -> green -> orange, low to high) -->
+
+                <!-- 1: Older than 6 months = 16394 -> h = 446.35 (top quartile -> orange) -->
+                <path
+                  class="bar-orange"
+                  d="M120.5,113.65 L204.5,113.65 A6,6 0 0 1 210.5,119.65 L210.5,560 L114.5,560 L114.5,119.65 A6,6 0 0 1 120.5,113.65 Z"
+                ></path>
+                <text
+                  class="value-label emphasis"
+                  x="162.5"
+                  y="103.65"
+                  text-anchor="middle"
+                >
+                  16,394
+                </text>
+                <text
+                  class="category-label emphasis"
+                  x="162.5"
+                  y="586"
+                  text-anchor="middle"
+                >
+                  > 6 months
+                </text>
+
+                <!-- 2: Jan 2026 = 962 -> h = 26.19 (bottom quartile -> blue) -->
+                <path
+                  class="bar-blue"
+                  d="M265.5,533.81 L349.5,533.81 A6,6 0 0 1 355.5,539.81 L355.5,560 L259.5,560 L259.5,539.81 A6,6 0 0 1 265.5,533.81 Z"
+                ></path>
+                <text
+                  class="value-label"
+                  x="307.5"
+                  y="523.81"
+                  text-anchor="middle"
+                >
+                  962
+                </text>
+                <text
+                  class="category-label"
+                  x="307.5"
+                  y="586"
+                  text-anchor="middle"
+                >
+                  6 months
+                </text>
+
+                <!-- 3: Feb 2026 = 1645 -> h = 44.78 (2nd quartile -> purple) -->
+                <path
+                  class="bar-purple"
+                  d="M410.5,515.22 L494.5,515.22 A6,6 0 0 1 500.5,521.22 L500.5,560 L404.5,560 L404.5,521.22 A6,6 0 0 1 410.5,515.22 Z"
+                ></path>
+                <text
+                  class="value-label"
+                  x="452.5"
+                  y="505.22"
+                  text-anchor="middle"
+                >
+                  1,645
+                </text>
+                <text
+                  class="category-label"
+                  x="452.5"
+                  y="586"
+                  text-anchor="middle"
+                >
+                  5 months
+                </text>
+
+                <!-- 4: Mar 2026 = 1710 -> h = 46.56 (2nd quartile -> purple) -->
+                <path
+                  class="bar-purple"
+                  d="M555.5,513.44 L639.5,513.44 A6,6 0 0 1 645.5,519.44 L645.5,560 L549.5,560 L549.5,519.44 A6,6 0 0 1 555.5,513.44 Z"
+                ></path>
+                <text
+                  class="value-label"
+                  x="597.5"
+                  y="503.44"
+                  text-anchor="middle"
+                >
+                  1,710
+                </text>
+                <text
+                  class="category-label"
+                  x="597.5"
+                  y="586"
+                  text-anchor="middle"
+                >
+                  4 months
+                </text>
+
+                <!-- 5: Apr 2026 = 1733 -> h = 47.17 (3rd quartile -> green) -->
+                <path
+                  class="bar-green"
+                  d="M700.5,512.83 L784.5,512.83 A6,6 0 0 1 790.5,518.83 L790.5,560 L694.5,560 L694.5,518.83 A6,6 0 0 1 700.5,512.83 Z"
+                ></path>
+                <text
+                  class="value-label"
+                  x="742.5"
+                  y="502.83"
+                  text-anchor="middle"
+                >
+                  1,733
+                </text>
+                <text
+                  class="category-label"
+                  x="742.5"
+                  y="586"
+                  text-anchor="middle"
+                >
+                  3 months
+                </text>
+
+                <!-- 6: May 2026 = 1799 -> h = 48.97 (3rd quartile -> green) -->
+                <path
+                  class="bar-green"
+                  d="M845.5,511.03 L929.5,511.03 A6,6 0 0 1 935.5,517.03 L935.5,560 L839.5,560 L839.5,517.03 A6,6 0 0 1 845.5,511.03 Z"
+                ></path>
+                <text
+                  class="value-label"
+                  x="887.5"
+                  y="501.03"
+                  text-anchor="middle"
+                >
+                  1,799
+                </text>
+                <text
+                  class="category-label"
+                  x="887.5"
+                  y="586"
+                  text-anchor="middle"
+                >
+                  2 months
+                </text>
+
+                <!-- 7: Jun 2026 = 1973 -> h = 53.71 (top quartile -> orange) -->
+                <path
+                  class="bar-blue"
+                  d="M990.5,506.29 L1074.5,506.29 A6,6 0 0 1 1080.5,512.29 L1080.5,560 L984.5,560 L984.5,512.29 A6,6 0 0 1 990.5,506.29 Z"
+                ></path>
+                <text
+                  class="value-label"
+                  x="1032.5"
+                  y="496.29"
+                  text-anchor="middle"
+                >
+                  1,973
+                </text>
+                <text
+                  class="category-label"
+                  x="1032.5"
+                  y="586"
+                  text-anchor="middle"
+                >
+                  1 month
+                </text>
+
+                <!-- 8: Jul 2026 = 396 -> h = 10.78 (bottom quartile -> blue, partial month) -->
+                <path
+                  class="bar-blue"
+                  d="M1134.5,549.22 L1220.5,549.22 A5,5 0 0 1 1225.5,554.22 L1225.5,560 L1129.5,560 L1129.5,554.22 A5,5 0 0 1 1134.5,549.22 Z"
+                ></path>
+                <text
+                  class="value-label"
+                  x="1177.5"
+                  y="539.22"
+                  text-anchor="middle"
+                >
+                  396
+                </text>
+                <text
+                  class="category-label"
+                  x="1177.5"
+                  y="586"
+                  text-anchor="middle"
+                >
+                  < 1 month
+                </text>
+
+                <!-- x-axis title -->
+                <text class="axis-title" x="670" y="628" text-anchor="middle">
+                  Created
+                </text>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Bear</h2>
+          <div class="notes">
+            once a day full @atlassian/eslint-plugin-a11y scan with everything
+            set to error reports violations, eslint-disableds and missing test
+            coverage creates/updates a ticket and assigns to relevant team to
+            fix ensures we're tracking how we're improving (hopefully) over time
+            (or any regressions) much stricter standards, but doesn't fail the
+            build important: hook things into existing processes so they don't
+            get missed due date between 2 & 6 months depending on severity
+          </div>
+        </section>
+
+        <section>
+          <div class="r-fit-text">
+            <em style="color: var(--light-gold); font-style: normal">66%</em>
+            reduction in<br />
+            eslint-disableds
+          </div>
+        </section>
+
+        <section>
+          <ul style="font-size: 2em">
+            <li class="fragment">automated tools</li>
+            <li class="fragment">expert input</li>
+            <li class="fragment">existing processes</li>
           </ul>
+          <div class="notes">
+            - lean into automated tools as much as possible, they're very cheap
+            and get you good coverage - if possible, include input from expert
+            users - trained professionals as well as users with disabilities -
+            make sure you integrate into existing processes - make it as easy as
+            possible
+          </div>
         </section>
 
-        <section>
-          <img
-            src="dist/figma-annotations.png"
-            alt="Figma design showing annotations for tab order alt-text, aria-labels & HTML elements"
-          />
-          <a
-            class="fragment"
-            href="https://www.figma.com/community/file/1022394680250523675/intopias-accessibility-annotation-kit"
-            >Intopia's Accessibility Annotation Kit</a
-          >
-        </section>
-
-        <section>
-          <h3>Knowledge sharing</h3>
-          <ul>
-            <li>Training</li>
-            <li>Accessibility Champions Program</li>
-            <li class="fragment">Knowledge Base</li>
-            <li class="fragment">#help-accessibility</li>
-            <li class="fragment">Office hours</li>
-          </ul>
-        </section>
-
-        <section data-background-image="dist/Laforge.jpg">
-          <h2 style="position: fixed; right: 0">
-            Expert<br />
-            input
-          </h2>
-        </section>
-
-        <section>
-          <h3>Expert input</h3>
-          <ul>
-            <li class="fragment">Accessibility professionals</li>
-            <li class="fragment">Staff</li>
-            <li class="fragment">Users</li>
-          </ul>
-        </section>
-
-        <section>
-          <ul>
-            <li class="fragment">Every little bit helps</li>
-            <li class="fragment">Shift a11y left</li>
-            <li class="fragment">Automated tools</li>
-            <li class="fragment">Knowledge sharing</li>
-            <li class="fragment">Expert feedback</li>
-          </ul>
-        </section>
-
-        <section>
+        <section data-background-image="dist/engage.jpg">
           <div
             style="
               display: flex;
               flex-direction: column;
               gap: 0.25em;
-              align-items: center;
+              align-items: start;
               font-size: 3em;
+              background: hsl(0 100% 0% /0.4);
+              padding: 0.2em 1em;
             "
           >
+            <img src="dist/frame.png" alt="" />
             <a href="https://a11y.ez.codes">a11y.ez.codes</a>
-            <img src="dist/frame.png" alt="https://a11y.ez.codes" />
           </div>
         </section>
       </div>
@@ -982,7 +1596,7 @@ test.describe('homepage', () => {
       // - https://revealjs.com/config/
       Reveal.initialize({
         hash: true,
-        controls: true,
+        controls: false,
         progress: false,
 
         // Learn about plugins: https://revealjs.com/plugins/
