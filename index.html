@@ -1608,7 +1608,7 @@ test.describe('homepage', () => {
             }
           </style>
           
-          <div class="a11y-diagram" role="img" aria-label="A11YSCAN pipeline diagram: four test runners (Bear, Jest, Storybook, Gemini) feed into two data stores (S3 and Databricks), which in turn power three outputs (ENGHEALTH tickets, Dashboards, and TechOps Reporter).">
+          <div class="a11y-diagram" role="img" aria-label="A11YSCAN pipeline diagram: four test runners (Bear, Jest, Storybook, Gemini) feed into two data stores (S3 and Databricks), which in turn power four outputs (ENGHEALTH tickets, Dashboards, TechOps Reporter, Remediation factory).">
                     
             <!-- Test Runners Row -->
             <div class="a11y-row" aria-hidden="true">
@@ -1666,6 +1666,10 @@ test.describe('homepage', () => {
                 <div class="a11y-card__icon a11y-card__icon--sm">📋</div>
                 <div class="a11y-card__label a11y-card__label--output">TechOps</div>
               </div>
+              <div class="a11y-card a11y-card--output">
+                <div class="a11y-card__icon a11y-card__icon--sm">🤖</div>
+                <div class="a11y-card__label a11y-card__label--output">Remediation factory</div>
+              </div>
             </div>
           
           </div>          <div class="notes">
@@ -1676,9 +1680,8 @@ test.describe('homepage', () => {
 
         <section>
           <div class="r-fit-text">
-            <em style="color: var(--light-gold); font-style: normal">66%</em>
-            reduction in<br />
-            eslint-disableds
+            <em style="color: var(--light-gold); font-style: normal">66% ↓ </em>eslint-disableds<br>
+            <em style="color: var(--light-gold); font-style: normal">25% ↓ </em>new issues
           </div>
         </section>
 
