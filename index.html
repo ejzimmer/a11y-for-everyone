@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="plugin/highlight/monokai.css" />
 
     <style>
-      body {
+      :root {
         --gold: #f99217;
         --light-gold: #fbb356;
         --red: #cc4444;
@@ -1532,15 +1532,145 @@ test.describe('homepage', () => {
         </section>
 
         <section>
-          <h2>Bear</h2>
-          <div class="notes">
-            once a day full @atlassian/eslint-plugin-a11y scan with everything
-            set to error reports violations, eslint-disableds and missing test
-            coverage creates/updates a ticket and assigns to relevant team to
-            fix ensures we're tracking how we're improving (hopefully) over time
-            (or any regressions) much stricter standards, but doesn't fail the
-            build important: hook things into existing processes so they don't
-            get missed due date between 2 & 6 months depending on severity
+          <h2>A11YSCAN pipeline</h2>
+          <style>
+            :root {          
+              --border-card:   var(--red);              
+              --border-store:  var(--gold); 
+              --border-output: var(--blue);  
+              --text-muted:    #aaa;         /* lightened from #888 for better contrast */
+              --text-arrow:    var(--light-gold); 
+            }
+          
+            .a11y-diagram {
+              font-family: system-ui, sans-serif;
+              background: var(--bg-page);
+              color: var(--text-primary);
+              padding: 48px;
+              border-radius: 16px;
+              max-width: 900px;
+              margin: auto;
+            }
+          
+            .a11y-row {
+              display: flex;
+              justify-content: center;
+              gap: 12px;
+              margin-bottom: 16px;
+            }
+          
+            .a11y-row--stores  { gap: 24px; margin-bottom: 4px; }
+            .a11y-row--outputs { gap: 16px; }
+          
+            .a11y-card {
+              border-radius: 10px;
+              padding: 14px 18px;
+              text-align: center;
+              min-width: 80px;
+            }
+          
+            .a11y-card--runner {
+              background: var(--bg-card);
+              border: 1px solid var(--border-card);
+            }
+          
+            .a11y-card--store {
+              background: var(--bg-store);
+              border: 1px solid var(--border-store);
+              padding: 14px 28px;
+            }
+          
+            .a11y-card--output {
+              background: var(--bg-output);
+              border: 1px solid var(--border-output);
+              padding: 12px 16px;
+            }
+          
+            .a11y-card__icon       { font-size: 1.5rem; }
+            .a11y-card__icon--sm   { font-size: 1.2rem; }
+          
+            .a11y-card__label {
+              font-size: 0.85rem;
+              font-weight: 700;
+              margin-top: 6px;
+            }
+          
+            .a11y-card__label--store  { font-size: 0.9rem;  color: var(--text-store); }
+            .a11y-card__label--output { font-size: 0.8rem;  color: var(--text-output); }
+          
+            .a11y-arrows {
+              display: flex;
+              justify-content: center;
+              gap: 120px;
+              font-size: 1.4rem;
+              color: var(--text-arrow);
+              margin: 4px 0;
+            }
+          </style>
+          
+          <div class="a11y-diagram" role="img" aria-label="A11YSCAN pipeline diagram: four test runners (Bear, Jest, Storybook, Gemini) feed into two data stores (S3 and Databricks), which in turn power three outputs (ENGHEALTH tickets, Dashboards, and TechOps Reporter).">
+                    
+            <!-- Test Runners Row -->
+            <div class="a11y-row" aria-hidden="true">
+              <div class="a11y-card a11y-card--runner">
+                <div class="a11y-card__icon">🐻</div>
+                <div class="a11y-card__label">Bear</div>
+              </div>
+              <div class="a11y-card a11y-card--runner">
+                <div class="a11y-card__icon">🧪</div>
+                <div class="a11y-card__label">Jest</div>
+              </div>
+              <div class="a11y-card a11y-card--runner">
+                <div class="a11y-card__icon">📖</div>
+                <div class="a11y-card__label">Storybook</div>
+              </div>
+              <div class="a11y-card a11y-card--runner">
+                <div class="a11y-card__icon">👁️</div>
+                <div class="a11y-card__label">Gemini</div>
+              </div>
+            </div>
+          
+            <div class="a11y-arrows" aria-hidden="true">
+              <span>↘</span>
+              <span>↙</span>
+            </div>
+          
+            <!-- Data Stores Row -->
+            <div class="a11y-row a11y-row--stores" aria-hidden="true">
+              <div class="a11y-card a11y-card--store">
+                <div class="a11y-card__icon a11y-card__icon--sm">🗄️</div>
+                <div class="a11y-card__label a11y-card__label--store">S3</div>
+              </div>
+              <div class="a11y-card a11y-card--store">
+                <div class="a11y-card__icon a11y-card__icon--sm">📊</div>
+                <div class="a11y-card__label a11y-card__label--store">Databricks</div>
+              </div>
+            </div>
+          
+            <div class="a11y-arrows" aria-hidden="true">
+              <span>↓</span>
+              <span>↓</span>
+            </div>
+          
+            <!-- Outputs Row -->
+            <div class="a11y-row a11y-row--outputs" aria-hidden="true">
+              <div class="a11y-card a11y-card--output">
+                <div class="a11y-card__icon a11y-card__icon--sm">🎟️</div>
+                <div class="a11y-card__label a11y-card__label--output">ENGHEALTH</div>
+              </div>
+              <div class="a11y-card a11y-card--output">
+                <div class="a11y-card__icon a11y-card__icon--sm">📈</div>
+                <div class="a11y-card__label a11y-card__label--output">Dashboards</div>
+              </div>
+              <div class="a11y-card a11y-card--output">
+                <div class="a11y-card__icon a11y-card__icon--sm">📋</div>
+                <div class="a11y-card__label a11y-card__label--output">TechOps</div>
+              </div>
+            </div>
+          
+          </div>          <div class="notes">
+            once a day at 1405UTC
+            outputs - to dashboard to track violations over time, tickets for fixing critical issues & missing test coverage, tech ops reports
           </div>
         </section>
 
