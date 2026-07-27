@@ -231,8 +231,19 @@
       }
 
       .reveal ul {
-        list-style-image: url("dist/Starfleet_Combadge_TNG.svg");
         margin-inline-start: 0;
+        list-style-type: none;
+
+        li {
+          position: relative;
+        }
+
+        li::before {
+          content: url("dist/Starfleet_Combadge_TNG.svg");
+          position: absolute;
+          width: 1.8rem;
+          left: -2.3rem;
+        }
       }
     </style>
   </head>
@@ -443,6 +454,10 @@
           <style>
             .reveal .terminal-list {
               list-style: "> ";
+
+              li::before {
+                display: none;
+              }
             }
           </style>
           <div class="info">
@@ -539,7 +554,7 @@
               starship Enterprise from Star Trek.
             </span>
             <h2>Linting</h2>
-            <ul style="list-style-image: none; list-style-type: none">
+            <ul>
               <li>
                 Deque's
                 <a href="https://www.deque.com/axe/devtools/linter/"
@@ -750,7 +765,13 @@
         </section>
 
         <section data-transition="fade-in-out">
+          <style>
+            ul#axe li::before {
+              display: none;
+            }
+          </style>
           <ul
+            id="axe"
             style="
               list-style: none;
               padding: 0;
@@ -931,6 +952,9 @@ test.describe('homepage', () => {
             }
 
             ul.grid-list li {
+              &&::before {
+                display: none;
+              }
               display: grid;
               grid-template-columns: subgrid;
               grid-column: 1/-1;
@@ -1534,14 +1558,14 @@ test.describe('homepage', () => {
         <section>
           <h2>A11YSCAN pipeline</h2>
           <style>
-            :root {          
-              --border-card:   var(--red);              
-              --border-store:  var(--gold); 
-              --border-output: var(--blue);  
-              --text-muted:    #aaa;         /* lightened from #888 for better contrast */
-              --text-arrow:    var(--light-gold); 
+            :root {
+              --border-card: var(--red);
+              --border-store: var(--gold);
+              --border-output: var(--blue);
+              --text-muted: #aaa; /* lightened from #888 for better contrast */
+              --text-arrow: var(--light-gold);
             }
-          
+
             .a11y-diagram {
               font-family: system-ui, sans-serif;
               background: var(--bg-page);
@@ -1551,53 +1575,68 @@ test.describe('homepage', () => {
               max-width: 900px;
               margin: auto;
             }
-          
+
             .a11y-row {
               display: flex;
               justify-content: center;
               gap: 12px;
               margin-bottom: 16px;
             }
-          
-            .a11y-row--stores  { gap: 24px; margin-bottom: 4px; }
-            .a11y-row--outputs { gap: 16px; }
-          
+
+            .a11y-row--stores {
+              gap: 24px;
+              margin-bottom: 4px;
+            }
+            .a11y-row--outputs {
+              gap: 16px;
+            }
+
             .a11y-card {
               border-radius: 10px;
               padding: 14px 18px;
               text-align: center;
               min-width: 80px;
             }
-          
+
             .a11y-card--runner {
               background: var(--bg-card);
               border: 1px solid var(--border-card);
             }
-          
+
             .a11y-card--store {
               background: var(--bg-store);
               border: 1px solid var(--border-store);
               padding: 14px 28px;
             }
-          
+
             .a11y-card--output {
               background: var(--bg-output);
               border: 1px solid var(--border-output);
               padding: 12px 16px;
             }
-          
-            .a11y-card__icon       { font-size: 1.5rem; }
-            .a11y-card__icon--sm   { font-size: 1.2rem; }
-          
+
+            .a11y-card__icon {
+              font-size: 1.5rem;
+            }
+            .a11y-card__icon--sm {
+              font-size: 1.2rem;
+            }
+
             .a11y-card__label {
               font-size: 0.85rem;
               font-weight: 700;
               margin-top: 6px;
             }
-          
-            .a11y-card__label--store  { font-size: 0.9rem;  color: var(--text-store); }
-            .a11y-card__label--output { font-size: 0.8rem;  color: var(--text-output); }
-          
+
+            .a11y-card__label--store {
+              font-size: 0.9rem;
+              color: var(--text-store);
+            }
+            .a11y-card__label--output {
+              font-size: 0.8rem;
+              color: var(--text-output);
+            }
+
             .a11y-arrows {
               display: flex;
               justify-content: center;
@@ -1607,9 +1646,12 @@ test.describe('homepage', () => {
               margin: 4px 0;
             }
           </style>
-          
-          <div class="a11y-diagram" role="img" aria-label="A11YSCAN pipeline diagram: four test runners (Bear, Jest, Storybook, Gemini) feed into two data stores (S3 and Databricks), which in turn power four outputs (ENGHEALTH tickets, Dashboards, TechOps Reporter, Remediation factory).">
-                    
+
+          <div
+            class="a11y-diagram"
+            role="img"
+            aria-label="A11YSCAN pipeline diagram: four test runners (Bear, Jest, Storybook, Gemini) feed into two data stores (S3 and Databricks), which in turn power four outputs (ENGHEALTH tickets, Dashboards, TechOps Reporter, Remediation factory)."
+          >
             <!-- Test Runners Row -->
             <div class="a11y-row" aria-hidden="true">
               <div class="a11y-card a11y-card--runner">
@@ -1629,12 +1671,12 @@ test.describe('homepage', () => {
                 <div class="a11y-card__label">Gemini</div>
               </div>
             </div>
-          
+
             <div class="a11y-arrows" aria-hidden="true">
               <span>↘</span>
               <span>↙</span>
             </div>
-          
+
             <!-- Data Stores Row -->
             <div class="a11y-row a11y-row--stores" aria-hidden="true">
               <div class="a11y-card a11y-card--store">
@@ -1643,45 +1685,58 @@ test.describe('homepage', () => {
               </div>
               <div class="a11y-card a11y-card--store">
                 <div class="a11y-card__icon a11y-card__icon--sm">📊</div>
-                <div class="a11y-card__label a11y-card__label--store">Databricks</div>
+                <div class="a11y-card__label a11y-card__label--store">
+                  Databricks
+                </div>
               </div>
             </div>
-          
+
             <div class="a11y-arrows" aria-hidden="true">
               <span>↓</span>
               <span>↓</span>
             </div>
-          
+
             <!-- Outputs Row -->
             <div class="a11y-row a11y-row--outputs" aria-hidden="true">
               <div class="a11y-card a11y-card--output">
                 <div class="a11y-card__icon a11y-card__icon--sm">🎟️</div>
-                <div class="a11y-card__label a11y-card__label--output">ENGHEALTH</div>
+                <div class="a11y-card__label a11y-card__label--output">
+                  ENGHEALTH
+                </div>
               </div>
               <div class="a11y-card a11y-card--output">
                 <div class="a11y-card__icon a11y-card__icon--sm">📈</div>
-                <div class="a11y-card__label a11y-card__label--output">Dashboards</div>
+                <div class="a11y-card__label a11y-card__label--output">
+                  Dashboards
+                </div>
               </div>
               <div class="a11y-card a11y-card--output">
                 <div class="a11y-card__icon a11y-card__icon--sm">📋</div>
-                <div class="a11y-card__label a11y-card__label--output">TechOps</div>
+                <div class="a11y-card__label a11y-card__label--output">
+                  TechOps
+                </div>
               </div>
               <div class="a11y-card a11y-card--output">
                 <div class="a11y-card__icon a11y-card__icon--sm">🤖</div>
-                <div class="a11y-card__label a11y-card__label--output">Remediation factory</div>
+                <div class="a11y-card__label a11y-card__label--output">
+                  Remediation factory
+                </div>
               </div>
             </div>
-          
-          </div>          <div class="notes">
-            once a day at 1405UTC
-            outputs - to dashboard to track violations over time, tickets for fixing critical issues & missing test coverage, tech ops reports
+          </div>
+          <div class="notes">
+            once a day at 1405UTC outputs - to dashboard to track violations
+            over time, tickets for fixing critical issues & missing test
+            coverage, tech ops reports
           </div>
         </section>
 
         <section>
           <div class="r-fit-text">
-            <em style="color: var(--light-gold); font-style: normal">66% ↓ </em>eslint-disableds<br>
-            <em style="color: var(--light-gold); font-style: normal">25% ↓ </em>new issues
+            <em style="color: var(--light-gold); font-style: normal">66% ↓ </em
+            >eslint-disableds<br />
+            <em style="color: var(--light-gold); font-style: normal">25% ↓ </em
+            >new issues
           </div>
         </section>
 
@@ -1716,6 +1771,90 @@ test.describe('homepage', () => {
             <a href="https://a11y.ez.codes">a11y.ez.codes</a>
           </div>
         </section>
+
+        <section aria-label="Image credits">
+          <h2>Image credits</h2>
+          <table style="font-size: 0.5em; text-align: left">
+            <caption class="sr-only">
+              Star Trek background images used in this presentation, the slide
+              they appear on, and their source
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Slide</th>
+                <th scope="col">Image</th>
+                <th scope="col">Source</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0</td>
+                <td>USS Enterprise, exterior</td>
+                <td>Publicity image, © Paramount/CBS Studios</td>
+              </tr>
+              <tr>
+                <td>6, 8</td>
+                <td>Crew member vacuuming the bridge</td>
+                <td>Publicity image, © Paramount/CBS Studios</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>Tricorder</td>
+                <td>Publicity image, © Paramount/CBS Studios</td>
+              </tr>
+              <tr>
+                <td>13</td>
+                <td>Kirk chopping wood</td>
+                <td>
+                  <em>Star Trek Generations</em> (1994) –
+                  <a
+                    href="https://memory-alpha.fandom.com/wiki/Star_Trek_Generations"
+                    >Memory&nbsp;Alpha</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>21</td>
+                <td>Scotty at a Macintosh Plus</td>
+                <td>
+                  <em>Star Trek IV: The Voyage Home</em> (1986) –
+                  <a href="https://memory-alpha.fandom.com/wiki/Macintosh"
+                    >Memory&nbsp;Alpha</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>22</td>
+                <td>Kangaroo icon</td>
+                <td>
+                  Adapted from
+                  <a href="https://github.com/jdecked/twemoji">Twemoji</a>,
+                  ©&nbsp;Twitter, Inc and other contributors, licensed under
+                  <a href="https://creativecommons.org/licenses/by/4.0/"
+                    >CC&nbsp;BY&nbsp;4.0</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>23</td>
+                <td>Locutus of Borg</td>
+                <td>
+                  <em>Star Trek: The Next Generation</em>, “The Best of Both
+                  Worlds” (1990) –
+                  <a
+                    href="https://memory-alpha.fandom.com/wiki/The_Best_of_Both_Worlds_(episode)"
+                    >Memory&nbsp;Alpha</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>28</td>
+                <td>Picard, bridge</td>
+                <td>Publicity image, © Paramount/CBS Studios</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
       </div>
     </div>
 
@@ -1730,7 +1869,7 @@ test.describe('homepage', () => {
       Reveal.initialize({
         hash: true,
         controls: false,
-        progress: false,
+        progress: true,
 
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [RevealHighlight, RevealNotes],
