@@ -450,99 +450,6 @@
           </ul>
         </section>
 
-        <section>
-          <style>
-            .reveal .terminal-list {
-              list-style: "> ";
-
-              li::before {
-                display: none;
-              }
-            }
-          </style>
-          <div class="info">
-            <ul class="terminal-list">
-              <li class="fragment">
-                Before producing code, define keyboard/focus flow &amp;
-                names/roles/states
-              </li>
-              <li class="fragment">Add aria-label for icon-only buttons</li>
-              <li class="fragment">
-                Use Atlassian Design System components when available
-              </li>
-            </ul>
-          </div>
-
-          <div class="notes">
-            these skills include a broad range of things, include general a11y
-            advice, advice for specific elements, and a tonne of stuff that's
-            very specific to our design system
-          </div>
-        </section>
-
-        <section
-          data-background-image="dist/cleaning.jpg"
-          data-background-position="50vw"
-          data-background-size="contain"
-        >
-          <div style="width: 50%">
-            <span class="sr-only">
-              Background photo of a crew member vacuuming the bridge of the
-              starship Enterprise from Star Trek.
-            </span>
-            <h2>Linting</h2>
-            <ul style="list-style-image: none; list-style-type: none">
-              <li class="fragment">
-                Deque's
-                <a href="https://www.deque.com/axe/devtools/linter/"
-                  >axe Accessibility Linter</a
-                >
-              </li>
-              <li style="opacity: 0" aria-hidden="true">
-                <a href="https://www.npmjs.com/package/eslint-plugin-jsx-a11y"
-                  >eslint-plugin-jsx-a11y</a
-                >
-              </li>
-              <li style="opacity: 0" aria-hidden="true">
-                <a
-                  href="https://www.npmjs.com/package/eslint-plugin-styled-components-a11y"
-                  >eslint-plugin-styled-components-a11y</a
-                >
-              </li>
-              <li style="opacity: 0" aria-hidden="true">
-                <a href="https://atlassian.design"
-                  >Custom design system rules</a
-                >
-                <div class="notes">
-                  eg require use of design system tokens for colours
-                </div>
-              </li>
-              <li style="opacity: 0" aria-hidden="true">
-                <a href="https://oxc.rs/docs/guide/usage/linter/rules.html"
-                  >oxlint</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="notes">
-            it's important to integrate stuff into your existing workflows to
-            assure it actually happens easy with automated tooling that fits
-            into existing build pipelines bit trickier with manual tests
-          </div>
-        </section>
-
-        <section>
-          <img
-            src="dist/linter.png"
-            alt="IDE displaying an HTML anchor element containing an image element, with red squiggly underlines denoting linting errors on the link and image, and error text explaining the link needs discernible text"
-          />
-          <div class="notes">
-            upside/downside only work if you're writing code artisinally,
-            because coding agents are immune to the effects of red-squiggly
-            lines
-          </div>
-        </section>
-
         <section
           data-background-image="dist/cleaning.jpg"
           data-background-position="50vw"
@@ -555,12 +462,6 @@
             </span>
             <h2>Linting</h2>
             <ul>
-              <li>
-                Deque's
-                <a href="https://www.deque.com/axe/devtools/linter/"
-                  >axe Accessibility Linter</a
-                >
-              </li>
               <li class="fragment">
                 <a href="https://www.npmjs.com/package/eslint-plugin-jsx-a11y"
                   >eslint-plugin-jsx-a11y</a
@@ -582,6 +483,7 @@
                   >oxlint</a
                 >
               </li>
+              <li class="fragment">🐻 Bear</li>
             </ul>
           </div>
         </section>
@@ -608,128 +510,6 @@
           >
             tests
           </h2>
-        </section>
-
-        <section>
-          <div
-            style="
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              gap: 0.25em;
-              font-size: 2em;
-            "
-          >
-            <a href="https://testing-library.com/">testing-library.com</a>
-            <img src="dist/rtl-logo.png" alt="" />
-          </div>
-
-          <code
-            style="
-              display: flex;
-              flex-direction: column;
-              align-items: start;
-              width: fit-content;
-              margin: auto;
-            "
-            class="fragment"
-          >
-            <div>getByRole()</div>
-            <div>queryByRole()</div>
-            <div>findByRole()</div>
-          </code>
-        </section>
-
-        <section>
-          <div style="position: relative">
-            <pre><code>
-
-
-
-
-
-    screen.getByRole('button', { name: 'Submit' })
-
-
-
-
-
-          </code></pre>
-          </div>
-          <svg
-            viewBox="0 0 680 280"
-            xmlns="http://www.w3.org/2000/svg"
-            style="
-              font-family: monospace;
-              position: absolute;
-              top: 20px;
-              left: 0;
-            "
-            role="image"
-          >
-            <title>
-              Arrow labelled "role", pointing to "button" and arrow labelled
-              "accessible name", pointing to name: "Submit"
-            </title>
-            <!-- top arrow -->
-            <g fill="var(--light-gold)" transform="translate(0, 30)">
-              <text
-                x="230"
-                y="48"
-                font-size="20"
-                font-weight="600"
-                text-anchor="middle"
-                transform="translate(-15, 15)"
-                aria-hidden="true"
-              >
-                role
-              </text>
-              <path
-                d="M 250 65 Q 290 95 306.8 114.7"
-                stroke="var(--light-gold)"
-                stroke-width="5"
-                fill="none"
-                stroke-linecap="round"
-              />
-              <polygon points="313.6,122 301.67,119.42 311.94,109.91" />
-            </g>
-
-            <!-- bottom arrow -->
-            <g fill="var(--light-gold)" transform="translate(-110, 60)">
-              <text
-                x="550"
-                y="205"
-                font-size="20"
-                font-weight="600"
-                text-anchor="middle"
-                aria-hidden="true"
-              >
-                accessible name
-              </text>
-              <path
-                d="M 543 175 Q 545 170 550 137.9"
-                stroke="var(--light-gold)"
-                stroke-width="5"
-                fill="none"
-                stroke-linecap="round"
-              />
-              <polygon points="551.2,128 556.86,138.81 542.98,137.02" />
-            </g>
-          </svg>
-        </section>
-
-        <section>
-          <pre><code class="text">
-
-
-
-    TestingLibraryElementError: Found 
-    multiple elements with the role "link"
-    and name "Play episode"
-
-
-
-          </code></pre>
         </section>
 
         <section
@@ -762,104 +542,6 @@
             tool from Deque that knows how to take rendered DOM and check it for
             accessibility issues list of ~90 rules that are checked
           </div>
-        </section>
-
-        <section data-transition="fade-in-out">
-          <style>
-            ul#axe li::before {
-              display: none;
-            }
-          </style>
-          <ul
-            id="axe"
-            style="
-              list-style: none;
-              padding: 0;
-              font-family: sans-serif;
-              font-size: 20px;
-            "
-          >
-            <li style="display: flex; align-items: center; margin-bottom: 14px">
-              <span style="font-size: 32px; margin-right: 12px">✅</span>
-              <span style="text-decoration: line-through; color: #888"
-                >color-contrast — elements meet minimum color contrast
-                ratio</span
-              >
-            </li>
-            <li style="display: flex; align-items: center; margin-bottom: 14px">
-              <span style="font-size: 32px; margin-right: 12px">✅</span>
-              <span style="text-decoration: line-through; color: #888"
-                >image-alt — images have alternate text</span
-              >
-            </li>
-            <li style="display: flex; align-items: center; margin-bottom: 14px">
-              <span
-                style="
-                  font-size: 32px;
-                  margin-right: 12px;
-                  color: #ccc;
-                  border: 3px solid #ccc;
-                  border-radius: 8px;
-                  width: 28px;
-                  height: 28px;
-                  display: inline-flex;
-                  align-items: center;
-                  justify-content: center;
-                  box-sizing: border-box;
-                "
-              >
-              </span>
-              <span>label — form elements have associated labels</span>
-            </li>
-            <li style="display: flex; align-items: center; margin-bottom: 14px">
-              <span style="font-size: 32px; margin-right: 12px">✅</span>
-              <span style="text-decoration: line-through; color: #888"
-                >link-name — links have discernible text</span
-              >
-            </li>
-            <li style="display: flex; align-items: center; margin-bottom: 14px">
-              <span
-                style="
-                  font-size: 32px;
-                  margin-right: 12px;
-                  color: #ccc;
-                  border: 3px solid #ccc;
-                  border-radius: 8px;
-                  width: 28px;
-                  height: 28px;
-                  display: inline-flex;
-                  align-items: center;
-                  justify-content: center;
-                  box-sizing: border-box;
-                "
-              >
-              </span>
-              <span
-                >aria-required-attr — required ARIA attributes are
-                provided</span
-              >
-            </li>
-            <li style="display: flex; align-items: center; margin-bottom: 14px">
-              <span
-                style="
-                  font-size: 32px;
-                  margin-right: 12px;
-                  color: #ccc;
-                  border: 3px solid #ccc;
-                  border-radius: 8px;
-                  width: 28px;
-                  height: 28px;
-                  display: inline-flex;
-                  align-items: center;
-                  justify-content: center;
-                  box-sizing: border-box;
-                "
-              >
-              </span>
-              <span>heading-order — heading levels increase by one</span>
-            </li>
-          </ul>
-          <div class="notes">only tests page layout/structure, not flow</div>
         </section>
 
         <section data-transition="fade-in">
@@ -940,48 +622,6 @@ test.describe('homepage', () => {
           </div>
         </section>
 
-        <section>
-          <style>
-            ul.grid-list {
-              display: grid;
-              grid-template-columns: min-content 1fr;
-              margin-inline: auto;
-              width: fit-content;
-              gap: 8px;
-              font-size: 2em;
-            }
-
-            ul.grid-list li {
-              &&::before {
-                display: none;
-              }
-              display: grid;
-              grid-template-columns: subgrid;
-              grid-column: 1/-1;
-            }
-          </style>
-          <ul class="grid-list">
-            <li class="fragment">
-              <div>1.4.11</div>
-              Non-text Contrast
-            </li>
-            <li class="fragment">
-              <div>2.1.1</div>
-              Keyboard
-            </li>
-            <li class="fragment">
-              <div>3.3.3</div>
-              Error suggestion
-            </li>
-          </ul>
-          <div class="notes">
-            there are companies working on using AI to solve some of these
-            issues, but they're generally getting better at more complex
-            versions of the what - eg contrast across multiple contexts - while
-            still struggling with the meaning part
-          </div>
-        </section>
-
         <section data-background-image="dist/manual-testing.jpg">
           <span class="sr-only">
             Background photo of Scotty from Star Trek IV typing on the keyboard
@@ -1008,12 +648,49 @@ test.describe('homepage', () => {
           </div>
         </section>
 
+        <section data-background-image="dist/q-judge.jpg">
+          <span class="sr-only"
+            >Background image of Q, judging the crew of the Enterprise</span
+          >
+        </section>
+
+        <section>
+          <img src="dist/Switcheroo classification.png" alt="" />
+          <div class="sr-only">
+            <h2>Accessibility Risk <em>Medium a11y risk</em></h2>
+
+            <h3>What this means</h3>
+            <p>
+              This change has a noticeable impact on how users interact with
+              part of the UI, but it's more incremental than a full redesign.
+            </p>
+
+            <ul>
+              <li><strong>Manual accessibility QA is recommended.</strong></li>
+              <li>
+                As feature lead,
+                <strong
+                  >review a11y ticket <a href="#">A11Y-59344</a> and schedule
+                  manual QA</strong
+                >
+                focused on the components or steps that changed (dialogs,
+                panels, forms, navigation).
+              </li>
+              <li>
+                Prioritise fixing issues that
+                <strong>block or significantly hinder task completion</strong>
+                for users with disabilities or assistive tech; other issues can
+                be planned into follow-up work.
+              </li>
+            </ul>
+          </div>
+        </section>
+
         <section>
           <img
             src="dist/padd.jpg"
             height="300vh"
             alt="Star Trek PADD (personal access display device)"
-            class="fragment"
           />
         </section>
 
@@ -1043,180 +720,23 @@ test.describe('homepage', () => {
           </div>
         </section>
 
-        <section>
-          <h2>A11YSCAN pipeline</h2>
-          <style>
-            :root {
-              --border-card: var(--red);
-              --border-store: var(--gold);
-              --border-output: var(--blue);
-              --text-muted: #aaa; /* lightened from #888 for better contrast */
-              --text-arrow: var(--light-gold);
-            }
-
-            .a11y-diagram {
-              font-family: system-ui, sans-serif;
-              background: var(--bg-page);
-              color: var(--text-primary);
-              padding: 48px;
-              border-radius: 16px;
-              max-width: 900px;
-              margin: auto;
-            }
-
-            .a11y-row {
-              display: flex;
-              justify-content: center;
-              gap: 12px;
-              margin-bottom: 16px;
-            }
-
-            .a11y-row--stores {
-              gap: 24px;
-              margin-bottom: 4px;
-            }
-            .a11y-row--outputs {
-              gap: 16px;
-            }
-
-            .a11y-card {
-              border-radius: 10px;
-              padding: 14px 18px;
-              text-align: center;
-              min-width: 80px;
-            }
-
-            .a11y-card--runner {
-              background: var(--bg-card);
-              border: 1px solid var(--border-card);
-            }
-
-            .a11y-card--store {
-              background: var(--bg-store);
-              border: 1px solid var(--border-store);
-              padding: 14px 28px;
-            }
-
-            .a11y-card--output {
-              background: var(--bg-output);
-              border: 1px solid var(--border-output);
-              padding: 12px 16px;
-            }
-
-            .a11y-card__icon {
-              font-size: 1.5rem;
-            }
-            .a11y-card__icon--sm {
-              font-size: 1.2rem;
-            }
-
-            .a11y-card__label {
-              font-size: 0.85rem;
-              font-weight: 700;
-              margin-top: 6px;
-            }
-
-            .a11y-card__label--store {
-              font-size: 0.9rem;
-              color: var(--text-store);
-            }
-            .a11y-card__label--output {
-              font-size: 0.8rem;
-              color: var(--text-output);
-            }
-
-            .a11y-arrows {
-              display: flex;
-              justify-content: center;
-              gap: 120px;
-              font-size: 1.4rem;
-              color: var(--text-arrow);
-              margin: 4px 0;
-            }
-          </style>
-
-          <div
-            class="a11y-diagram"
-            role="img"
-            aria-label="A11YSCAN pipeline diagram: four test runners (Bear, Jest, Storybook, Gemini) feed into two data stores (S3 and Databricks), which in turn power four outputs (ENGHEALTH tickets, Dashboards, TechOps Reporter, Remediation factory)."
+        <section data-background-image="dist/data-and-geordie.jpg">
+          <h2
+            style="
+              background: radial-gradient(
+                circle,
+                hsl(0 100% 0% / 0.8),
+                transparent 60%
+              );
+              width: fit-content;
+              margin-inline: auto;
+              margin-block-start: 2.5em;
+              padding: 2.5em;
+              border-radius: 30px;
+            "
           >
-            <!-- Test Runners Row -->
-            <div class="a11y-row" aria-hidden="true">
-              <div class="a11y-card a11y-card--runner">
-                <div class="a11y-card__icon">🐻</div>
-                <div class="a11y-card__label">Bear</div>
-              </div>
-              <div class="a11y-card a11y-card--runner">
-                <div class="a11y-card__icon">🧪</div>
-                <div class="a11y-card__label">Jest</div>
-              </div>
-              <div class="a11y-card a11y-card--runner">
-                <div class="a11y-card__icon">📖</div>
-                <div class="a11y-card__label">Storybook</div>
-              </div>
-              <div class="a11y-card a11y-card--runner">
-                <div class="a11y-card__icon">👁️</div>
-                <div class="a11y-card__label">Gemini</div>
-              </div>
-            </div>
-
-            <div class="a11y-arrows" aria-hidden="true">
-              <span>↘</span>
-              <span>↙</span>
-            </div>
-
-            <!-- Data Stores Row -->
-            <div class="a11y-row a11y-row--stores" aria-hidden="true">
-              <div class="a11y-card a11y-card--store">
-                <div class="a11y-card__icon a11y-card__icon--sm">🗄️</div>
-                <div class="a11y-card__label a11y-card__label--store">S3</div>
-              </div>
-              <div class="a11y-card a11y-card--store">
-                <div class="a11y-card__icon a11y-card__icon--sm">📊</div>
-                <div class="a11y-card__label a11y-card__label--store">
-                  Databricks
-                </div>
-              </div>
-            </div>
-
-            <div class="a11y-arrows" aria-hidden="true">
-              <span>↓</span>
-              <span>↓</span>
-            </div>
-
-            <!-- Outputs Row -->
-            <div class="a11y-row a11y-row--outputs" aria-hidden="true">
-              <div class="a11y-card a11y-card--output">
-                <div class="a11y-card__icon a11y-card__icon--sm">🎟️</div>
-                <div class="a11y-card__label a11y-card__label--output">
-                  ENGHEALTH
-                </div>
-              </div>
-              <div class="a11y-card a11y-card--output">
-                <div class="a11y-card__icon a11y-card__icon--sm">📈</div>
-                <div class="a11y-card__label a11y-card__label--output">
-                  Dashboards
-                </div>
-              </div>
-              <div class="a11y-card a11y-card--output">
-                <div class="a11y-card__icon a11y-card__icon--sm">📋</div>
-                <div class="a11y-card__label a11y-card__label--output">
-                  TechOps
-                </div>
-              </div>
-              <div class="a11y-card a11y-card--output">
-                <div class="a11y-card__icon a11y-card__icon--sm">🤖</div>
-                <div class="a11y-card__label a11y-card__label--output">
-                  Remediation factory
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="notes">
-            once a day at 1405UTC outputs - to dashboard to track violations
-            over time, tickets for fixing critical issues & missing test
-            coverage, tech ops reports
-          </div>
+            Remediation factory
+          </h2>
         </section>
 
         <section>
@@ -1261,86 +781,108 @@ test.describe('homepage', () => {
 
         <section aria-label="Image credits">
           <h2>Image credits</h2>
-          <table style="font-size: 0.5em; text-align: left">
-            <caption class="sr-only">
-              Star Trek background images used in this presentation, the slide
-              they appear on, and their source
-            </caption>
-            <thead>
-              <tr>
-                <th scope="col">Slide</th>
-                <th scope="col">Image</th>
-                <th scope="col">Source</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>0</td>
-                <td>USS Enterprise, exterior</td>
-                <td>Publicity image, © Paramount/CBS Studios</td>
-              </tr>
-              <tr>
-                <td>6, 8</td>
-                <td>Crew member vacuuming the bridge</td>
-                <td>Publicity image, © Paramount/CBS Studios</td>
-              </tr>
-              <tr>
-                <td>9</td>
-                <td>Tricorder</td>
-                <td>Publicity image, © Paramount/CBS Studios</td>
-              </tr>
-              <tr>
-                <td>13</td>
-                <td>Kirk chopping wood</td>
-                <td>
-                  <em>Star Trek Generations</em> (1994) –
-                  <a
-                    href="https://memory-alpha.fandom.com/wiki/Star_Trek_Generations"
-                    >Memory&nbsp;Alpha</a
-                  >
-                </td>
-              </tr>
-              <tr>
-                <td>21</td>
-                <td>Scotty at a Macintosh Plus</td>
-                <td>
-                  <em>Star Trek IV: The Voyage Home</em> (1986) –
-                  <a href="https://memory-alpha.fandom.com/wiki/Macintosh"
-                    >Memory&nbsp;Alpha</a
-                  >
-                </td>
-              </tr>
-              <tr>
-                <td>22</td>
-                <td>Kangaroo icon</td>
-                <td>
-                  Adapted from
-                  <a href="https://github.com/jdecked/twemoji">Twemoji</a>,
-                  ©&nbsp;Twitter, Inc and other contributors, licensed under
-                  <a href="https://creativecommons.org/licenses/by/4.0/"
-                    >CC&nbsp;BY&nbsp;4.0</a
-                  >
-                </td>
-              </tr>
-              <tr>
-                <td>23</td>
-                <td>Locutus of Borg</td>
-                <td>
-                  <em>Star Trek: The Next Generation</em>, “The Best of Both
-                  Worlds” (1990) –
-                  <a
-                    href="https://memory-alpha.fandom.com/wiki/The_Best_of_Both_Worlds_(episode)"
-                    >Memory&nbsp;Alpha</a
-                  >
-                </td>
-              </tr>
-              <tr>
-                <td>28</td>
-                <td>Picard, bridge</td>
-                <td>Publicity image, © Paramount/CBS Studios</td>
-              </tr>
-            </tbody>
-          </table>
+          <div style="height: 400px; overflow: auto">
+            <table style="font-size: 0.5em; text-align: left">
+              <caption class="sr-only">
+                Star Trek background images used in this presentation, the slide
+                they appear on, and their source
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Slide</th>
+                  <th scope="col">Image</th>
+                  <th scope="col">Source</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>0</td>
+                  <td>USS Enterprise, exterior</td>
+                  <td>Publicity image, © Paramount/CBS Studios</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Crew member vacuuming the bridge</td>
+                  <td>Publicity image, © Paramount/CBS Studios</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>Tricorder</td>
+                  <td>Publicity image, © Paramount/CBS Studios</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>Kirk chopping wood</td>
+                  <td>
+                    <em>Star Trek Generations</em> (1994) –
+                    <a
+                      href="https://memory-alpha.fandom.com/wiki/Star_Trek_Generations"
+                      >Memory&nbsp;Alpha</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>13</td>
+                  <td>Scotty at a Macintosh Plus</td>
+                  <td>
+                    <em>Star Trek IV: The Voyage Home</em> (1986) –
+                    <a href="https://memory-alpha.fandom.com/wiki/Macintosh"
+                      >Memory&nbsp;Alpha</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>14</td>
+                  <td>Q as judge of humanity</td>
+                  <td>
+                    <em>Star Trek: The Next Generation</em>, “Encounter at
+                    Farpoint” (1987) –
+                    <a
+                      href="https://www.cbr.com/worst-things-that-happened-star-trek-the-next-generation/"
+                      >10 Worst Things That Happened To The Crew On Star Trek:
+                      The Next Generation</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>16</td>
+                  <td>PADD</td>
+                  <td>Publicity image, © Paramount/CBS Studios</td>
+                </tr>
+                <tr>
+                  <td>17</td>
+                  <td>Locutus of Borg</td>
+                  <td>
+                    <em>Star Trek: The Next Generation</em>, “The Best of Both
+                    Worlds” (1990) –
+                    <a
+                      href="https://memory-alpha.fandom.com/wiki/The_Best_of_Both_Worlds_(episode)"
+                      >Memory&nbsp;Alpha</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>18</td>
+                  <td>Geordie fixing Data's brain</td>
+                  <td>
+                    <em>Star Trek: The Next Generation</em>, “A Fistful of
+                    Datas” (1992) –
+                    <a
+                      href="https://en.hocmarketing.org/unveiling-the-unbreakable-bond-the-top-10-legendary-data-and-geo-45901"
+                      >Unveiling the Unbreakable Bond: The Top 10 Legendary Data
+                      and Geordi Star Trek Friendship Moments that Will Leave
+                      You Speechless</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>21</td>
+                  <td>Picard, bridge</td>
+                  <td>Publicity image, © Paramount/CBS Studios</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </section>
       </div>
     </div>
@@ -1355,7 +897,7 @@ test.describe('homepage', () => {
       // - https://revealjs.com/config/
       Reveal.initialize({
         hash: true,
-        controls: false,
+        controls: true,
         progress: false,
 
         // Learn about plugins: https://revealjs.com/plugins/
