@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
 
-    <title>Enterprise grade Accesibility for Everybody</title>
+    <title>Enterprise grade Accessibility for Everybody</title>
 
     <link rel="stylesheet" href="dist/reset.css" />
     <link rel="stylesheet" href="dist/reveal.css" />
@@ -483,6 +483,11 @@
                   >oxlint</a
                 >
               </li>
+              <li class="fragment">
+                <a href="https://github.com/oxc-project/eslint-plugin-oxlint"
+                  >eslint-plugin-oxlint</a
+                >
+              </li>
               <li class="fragment">🐻 Bear</li>
             </ul>
           </div>
@@ -591,8 +596,31 @@ test.describe('homepage', () => {
           </div>
         </section>
 
+        <section data-background-image="dist/fleet.jpg">
+          <span class="sr-only">
+            Background image of the Starfleet Fleet, looking ominous
+          </span>
+
+          <h2
+            style="
+              color: var(--blue);
+              background: radial-gradient(
+                circle,
+                hsl(0 100% 0% / 0.8),
+                transparent 60%
+              );
+              width: fit-content;
+              margin-inline: auto;
+              padding: 3em;
+              border-radius: 30px;
+            "
+          >
+            Accessibility Test Coverage
+          </h2>
+        </section>
+
         <section>
-          <h2>Automating axe-core tests</h2>
+          <h2 style="color: var(--blue)">Automating axe-core tests</h2>
           <pre class="fragment"><code class="js">
 
 
@@ -648,10 +676,32 @@ test.describe('homepage', () => {
           </div>
         </section>
 
-        <section data-background-image="dist/q-judge.jpg">
+        <section
+          data-background-image="dist/q-judge.jpg"
+          data-background-size="contain"
+        >
           <span class="sr-only"
             >Background image of Q, judging the crew of the Enterprise</span
           >
+          <div
+            style="
+              width: 50%;
+              margin-inline-start: -100px;
+              font-family: &quot;Strange New Worlds - Poster&quot;;
+              color: var(--blue);
+              font-size: 2.5em;
+              line-height: 1.2;
+              word-spacing: 0.2em;
+              background: radial-gradient(
+                circle,
+                hsl(0 100% 0% / 0.8),
+                transparent 60%
+              );
+              padding-block: 100px;
+            "
+          >
+            What gets tested?
+          </div>
         </section>
 
         <section>
@@ -686,7 +736,49 @@ test.describe('homepage', () => {
           </div>
         </section>
 
+        <section
+          data-background-image="dist/wesley.jpg"
+          data-background-size="cover"
+        >
+          <span class="sr-only"
+            >Background image of Wesley and the Traveler. The Traveler is
+            working at a console while fading to transparent</span
+          >
+          <div
+            style="
+              width: 50%;
+              margin-inline-start: -100px;
+              font-family: &quot;Strange New Worlds - Poster&quot;;
+              color: var(--blue);
+              font-size: 2.5em;
+              line-height: 1.2;
+              word-spacing: 0.2em;
+              background: radial-gradient(
+                circle,
+                hsl(0 100% 0% / 0.8),
+                transparent 60%
+              );
+              padding-block: 100px;
+            "
+          >
+            How does it get fixed?
+          </div>
+        </section>
+
         <section>
+          <div
+            style="
+              margin-inline-start: -100px;
+              font-family: &quot;Strange New Worlds - Poster&quot;;
+              color: var(--gold);
+              font-size: 2.5em;
+              line-height: 1.2;
+              word-spacing: 0.2em;
+            "
+          >
+            External work request
+          </div>
+
           <img
             src="dist/padd.jpg"
             height="300vh"
@@ -745,21 +837,6 @@ test.describe('homepage', () => {
             >new issues
           </div>
           <div class="r-fit-text fragment">2026 TechDiversity Awards</div>
-        </section>
-
-        <section>
-          <ul style="font-size: 2em">
-            <li class="fragment">automated tools</li>
-            <li class="fragment">expert input</li>
-            <li class="fragment">existing processes</li>
-          </ul>
-          <div class="notes">
-            - lean into automated tools as much as possible, they're very cheap
-            and get you good coverage - if possible, include input from expert
-            users - trained professionals as well as users with disabilities -
-            make sure you integrate into existing processes - make it as easy as
-            possible
-          </div>
         </section>
 
         <section data-background-image="dist/engage.jpg">
@@ -822,7 +899,19 @@ test.describe('homepage', () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>13</td>
+                  <td>11</td>
+                  <td>The Starfleet fleet</td>
+                  <td>
+                    <em>Star Trek: Deep Space 9</em>, “Sacrifice of Angels 2”
+                    (1997) –
+                    <a
+                      href="https://www.moddb.com/mods/star-trek-sacrifice-of-angels-2/images/federation-fleet"
+                      >Moddb</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>14</td>
                   <td>Scotty at a Macintosh Plus</td>
                   <td>
                     <em>Star Trek IV: The Voyage Home</em> (1986) –
@@ -832,7 +921,7 @@ test.describe('homepage', () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>14</td>
+                  <td>15</td>
                   <td>Q as judge of humanity</td>
                   <td>
                     <em>Star Trek: The Next Generation</em>, “Encounter at
@@ -845,7 +934,19 @@ test.describe('homepage', () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>16</td>
+                  <td>17</td>
+                  <td>Wesley and the Traveler</td>
+                  <td>
+                    <em>Star Trek: The Next Generation</em>, “Where no one has
+                    gone before” (1987) –
+                    <a
+                      href="https://strekonline.com/episodes/1-06-where-no-one-has-gone-before/attachment/where-no-one-has-gone-before-20"
+                      >STrek Online</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>18</td>
                   <td>PADD</td>
                   <td>Publicity image, © Paramount/CBS Studios</td>
                 </tr>
@@ -862,7 +963,7 @@ test.describe('homepage', () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>18</td>
+                  <td>20</td>
                   <td>Geordie fixing Data's brain</td>
                   <td>
                     <em>Star Trek: The Next Generation</em>, “A Fistful of
@@ -876,7 +977,7 @@ test.describe('homepage', () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>21</td>
+                  <td>22</td>
                   <td>Picard, bridge</td>
                   <td>Publicity image, © Paramount/CBS Studios</td>
                 </tr>
